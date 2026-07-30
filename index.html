@@ -174,6 +174,9 @@ h2.pg{font-family:var(--serif);font-size:40px;line-height:1.08;margin-bottom:6px
 .bigquote{border-left:4px solid var(--orange);padding:10px 20px;margin:4px 0;font-family:var(--serif);font-size:19px;font-style:italic;color:var(--plum-ink);line-height:1.55}
 .bigquote .qsrc{display:block;font-size:12.5px;font-style:normal;color:var(--muted);margin-top:7px}
 .orn{text-align:center;color:var(--orange);font-size:18px;letter-spacing:.6em;margin:2px 0 14px;user-select:none}
+.pairbox{margin-top:16px;background:var(--orange-soft);border:1px solid var(--mid-line);border-radius:11px;padding:13px 16px;font-size:14px;line-height:1.6}
+.pairbox b{color:var(--gold)}
+.pairbox .pair-note{display:block;margin-top:5px;font-size:12px;color:var(--muted)}
 
 /* buttons */
 .btn{background:linear-gradient(135deg,var(--plum),var(--hero2));color:#fff;border:none;border-radius:11px;padding:11px 22px;font-size:14.5px;font-weight:700;box-shadow:0 3px 10px var(--shadow);transition:transform .12s,box-shadow .12s}
@@ -354,6 +357,7 @@ const MODULES = [
 {
 id:"q1-essay", num:1, label:"Q1", title:"The Essay, the Writing Process & Format", part:"Quiz Prep", track:"quiz",
 tagline:"Everything Quiz 1 covers — structure, process, and the format rules that cost easy points.",
+pair:"Chapters 1–5 and 8 (pg. 3–129, 184–200) — the essay and the writing process — plus the MindTap video tutorials on thesis statements, organizing, introductions and conclusions, topic sentences, supporting ideas, and unified and coherent paragraphs.",
 lesson:{
 intro:"Quiz 1 tests three things: what an essay is, how the writing process works, and whether you know the course's format rules. None of it is hard — but every semester students lose points on exactly these questions. Learn them once, keep them all term.",
 points:[
@@ -411,6 +415,7 @@ assess:[
 {
 id:"q2-fragments", num:2, label:"Q2", title:"Fragments, Run-ons & Comma Splices", part:"Quiz Prep", track:"quiz",
 tagline:"The three sentence crimes Quiz 2 is built on.",
+pair:"Section 24t–24u, Sentence Fragments, Run-ons, and Comma Splices (pg. 604–608), plus the MindTap video tutorials “Revising Sentence Fragments” and “Revising Run-ons and Comma Splices.”",
 lesson:{
 intro:"A complete sentence needs a subject, a verb, and a complete thought. Break any of those and you've written a fragment; jam two sentences together and you've written a run-on or a comma splice. These are the 'major errors' the course objectives name first — and Quiz 2 tests nothing else.",
 points:[
@@ -468,6 +473,7 @@ assess:[
 {
 id:"q3-svagree", num:3, label:"Q3", title:"Subject–Verb Agreement", part:"Quiz Prep", track:"quiz",
 tagline:"Singular subjects take singular verbs — even when a phrase gets in the way.",
+pair:"Section 24a, Subject–Verb Agreement (pg. 588–591), plus the MindTap video tutorial “Subject-verb Agreement.”",
 lesson:{
 intro:"Agreement errors happen for one main reason: something comes between the subject and the verb, and the writer matches the verb to the wrong word. Quiz 3 is a collection of exactly those traps. Learn to find the true subject and the quiz solves itself.",
 points:[
@@ -525,6 +531,7 @@ assess:[
 {
 id:"q4-pronouns", num:4, label:"Q4", title:"Pronouns", part:"Quiz Prep", track:"quiz",
 tagline:"Agreement, clear reference, and no mid-essay identity changes.",
+pair:"Chapter 24, Sections 24k–24o, Pronouns, Pronoun Reference, and Pronoun-Antecedent Agreement (pg. 596–599), plus the MindTap tutorials “Making Pronouns Agree with Antecedents” and “Making Pronoun Reference Clear.”",
 lesson:{
 intro:"Quiz 4 covers the three pronoun skills the syllabus names: agreement with antecedents, clear reference, and consistency. Add pronoun case (I vs. me) and you have the whole quiz.",
 points:[
@@ -582,6 +589,7 @@ assess:[
 {
 id:"q5-commas", num:5, label:"Q5", title:"Commas & Apostrophes", part:"Quiz Prep", track:"quiz",
 tagline:"Where commas go, where they don't, and the apostrophe rules everyone mixes up.",
+pair:"The Using Punctuation and Mechanics class session, plus the MindTap tutorials “Using Commas,” “Using Colons and Semicolons,” “Using Apostrophes,” and “Using Capital Letters.”",
 lesson:{
 intro:"Quiz 5 is the punctuation quiz. Commas have four core jobs in this course; apostrophes have two. Master those six rules — and the three classic traps — and this is the easiest quiz of the semester.",
 points:[
@@ -642,6 +650,7 @@ assess:[
 {
 id:"q6-final", num:6, label:"★", title:"Final Exam Review (Part II)", part:"Quiz Prep", track:"quiz",
 tagline:"Everything, all at once — the way the post-test asks it.",
+pair:"Cumulative — revisit the chapters and tutorials from Q1–Q5, plus the Chapter 24 “Check Your Understanding: Major Errors in Grammar” assignment.",
 lesson:{
 intro:"Part II of the final exam covers the elements of an essay, the writing process, grammar, and punctuation — the whole semester in one sitting, closed-book, in the computer classroom, ninety minutes. This module mixes every topic the way the exam will. If you can clear these drills cold, you're ready.",
 points:[
@@ -698,6 +707,7 @@ assess:[
 {
 id:"e1-narrative", num:7, label:"E1", title:"The Narrative / Descriptive Essay", part:"Essay Coach", track:"essay",
 tagline:"Essay #1 · 500 words · tell one true story that makes one point.",
+pair:"Chapter 16, Description (pg. 382–404) and Chapter 17, Narration (pg. 405–420).",
 lesson:{
 intro:"Your first essay asks you to tell a story — and telling a story for a grade is different from telling one to a friend. It still needs a thesis, five paragraphs, and a point the reader carries away. The narrative gives you the easiest material of the semester (your own life) and the same grading standards as every other essay: unity, support, coherence.",
 points:[
@@ -761,6 +771,7 @@ assess:[
 {
 id:"e2-example", num:8, label:"E2", title:"Development by Example", part:"Essay Coach", track:"essay",
 tagline:"Essay #2 · 500–650 words · prove your point with specifics.",
+pair:"Chapter 9, Development by Example (pg. 203–217).",
 lesson:{
 intro:"The example essay makes a general claim and proves it with specific instances. It is the purest test of the syllabus's second grading criterion — support — because the whole essay IS support. The skill: choosing examples that are specific, relevant, and developed, not just listed.",
 points:[
@@ -824,6 +835,7 @@ assess:[
 {
 id:"e3-cause", num:9, label:"E3", title:"Cause & Effect", part:"Essay Coach", track:"essay",
 tagline:"Essay #3 · 650–800 words · outline required · why things happen, or what happens next.",
+pair:"Chapter 14, Causal Analysis (pg. 312–329) — and if you use any sources, Chapter 19 (Conducting Research) and Chapter 20 (Documenting Sources).",
 lesson:{
 intro:"The cause-and-effect essay analyzes WHY something happens or WHAT results from it. It's the first essay that requires a submitted outline — and the first where sloppy logic, not sloppy grammar, is the biggest danger. 'After' does not mean 'because.'",
 points:[
@@ -887,6 +899,7 @@ assess:[
 {
 id:"e4-compare", num:10, label:"E4", title:"Comparison / Contrast", part:"Essay Coach", track:"essay",
 tagline:"Essay #4 · 800–1,000 words · outline required · two subjects, one verdict.",
+pair:"Chapter 11, Comparison and Contrast (pg. 246–259).",
 lesson:{
 intro:"The comparison/contrast essay examines two subjects to reveal something a reader couldn't see by looking at either alone. The killer requirements: a thesis that takes a position (not 'they have similarities and differences'), a consistent organizational pattern, and balanced treatment of both subjects.",
 points:[
@@ -950,6 +963,7 @@ assess:[
 {
 id:"e5-argument", num:11, label:"E5", title:"The Argumentative Essay", part:"Essay Coach", track:"essay",
 tagline:"Essay #5 · 800–1,000 words · outline required · a claim, real reasons, and the other side answered.",
+pair:"Chapter 15, Argumentation (pg. 334–362), with Chapters 19–20 on researching and documenting sources.",
 lesson:{
 intro:"The argumentative essay is the capstone: take a debatable position, support it with reasons and evidence, and — this is what separates it from every earlier essay — face the strongest objection honestly and answer it. It also carries the course's sharpest rule: use any outside source without documenting it and the essay is a zero.",
 points:[
@@ -1362,7 +1376,7 @@ function renderModule(){
 }
 
 function renderLesson(md,s,body){
-  let h='<div class="card"><p class="lesson-intro">'+esc(md.lesson.intro)+'</p><div class="bigquote">&ldquo;'+esc(md.lesson.quote.t)+'&rdquo;<span class="qsrc">— '+esc(md.lesson.quote.s)+'</span></div></div>';
+  let h='<div class="card"><p class="lesson-intro">'+esc(md.lesson.intro)+'</p><div class="bigquote">&ldquo;'+esc(md.lesson.quote.t)+'&rdquo;<span class="qsrc">— '+esc(md.lesson.quote.s)+'</span></div>'+(md.pair?'<div class="pairbox"><b>📖 Pairs with your textbook:</b> '+esc(md.pair)+' <span class="pair-note">Do the assigned reading and MindTap work there — build the muscle here.</span></div>':'')+'</div>';
   h+='<div class="card">'+md.lesson.points.map((p,i)=>'<div class="principle"><div class="pn">'+(i+1)+'</div><div><h5>'+esc(p.h)+'</h5><p>'+esc(p.p)+'</p></div></div>').join("")+'</div>';
   h+='<div class="row">'+(s.lesson?'<span class="badge">Lesson read ✓</span>':'<button class="btn" id="readBtn">I&rsquo;ve read this — on to the drills →</button>')+'</div>';
   body.innerHTML=h;
