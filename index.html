@@ -177,6 +177,12 @@ h2.pg{font-family:var(--serif);font-size:40px;line-height:1.08;margin-bottom:6px
 .pairbox{margin-top:16px;background:var(--orange-soft);border:1px solid var(--mid-line);border-radius:11px;padding:13px 16px;font-size:14px;line-height:1.6}
 .pairbox b{color:var(--gold)}
 .pairbox .pair-note{display:block;margin-top:5px;font-size:12px;color:var(--muted)}
+.syl-table{width:100%;border-collapse:collapse;font-size:14px}
+.syl-table td,.syl-table th{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.5}
+.syl-table th{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.syl-table td.k{font-weight:700;white-space:nowrap;width:1%;padding-right:18px}
+.syl-table.sched td{font-size:13px}
+.syl-table tr:last-child td{border-bottom:none}
 
 /* buttons */
 .btn{background:linear-gradient(135deg,var(--plum),var(--hero2));color:#fff;border:none;border-radius:11px;padding:11px 22px;font-size:14.5px;font-weight:700;box-shadow:0 3px 10px var(--shadow);transition:transform .12s,box-shadow .12s}
@@ -1024,6 +1030,51 @@ assess:[
 ]
 }
 ];
+/* ============ COURSE SYLLABUS (condensed from the official Fall 2025 document) ============ */
+const SYL = {
+info:[["Course","English 119 — English I (3 credit hours)"],["Section","70382-802 · Mondays 12:00–2:55 p.m."],["Location","Ted Scott Campus"],["Prerequisites","“A” in ENG 114, “C” in ENG 115, or Accuplacer placement"],["Instructor","Professor Stacha Floyd · Office C105"],["Office hours","By appointment · Mon 11:00–11:30 · Tue 12:00–2:00 · Wed 11:00–1:30"],["Contact","sfloyd1@wcccd.edu · 734-699-7008"],["Textbook","Steps to Writing Well with Additional Readings, 11th ed. (Wyrick). The MindTap eBook is REQUIRED — all assignments run through it via Blackboard; the hardcopy is optional."]],
+grading:[["Attendance / Participation","10%"],["MindTap, Outlines, In-class & Reading Assignments","10%"],["Quizzes","15%"],["Writing Assignments","30%"],["Final Essay and Exam","35%"]],
+scale:"A 90–100 · B 80–89 · C 70–79 · D 60–69 · E below 60 (no pluses or minuses)",
+essays:[["1. Narrative / Descriptive","500 words","—"],["2. Development by Example","500–650","—"],["Midterm Writing Assignment","500–650","in class"],["3. Cause & Effect","650–800","outline required"],["4. Comparison / Contrast","800–1,000","outline required"],["5. Argumentative","800–1,000","outline required"],["Final Writing Assignment","800–1,000","in class · Part I of final"]],
+policies:[
+["Submitting essays","Due through Blackboard by the START of class on the due date — never by email. Not submitted through the link = zero."],
+["Late work","ONE late essay allowed all semester, downgraded, and never more than one week late."],
+["Rewrites","An essay turned in on time (except the final) may be rewritten once within a week for a higher grade — if it shows real improvement on the instructor's comments. Late essays get no rewrite."],
+["Outlines","Cause & Effect, Comparison/Contrast, and Argumentative essays must be submitted WITH an outline."],
+["Documentation","Any outside research must be documented, or the assignment receives a zero."],
+["Academic honesty & AI","Plagiarism and AI tools (ChatGPT, Grammarly, and the like) are prohibited on coursework. Violations earn a zero with no resubmission, plus referral to student services."],
+["Quizzes & exams","In class, on time, closed book and closed notes. Arrive late and you get only the remaining time; miss it without documented emergency and prior contact, and it's a zero."],
+["Attendance","Recorded daily; lateness and leaving early count against you. Tutoring help: the Learning Center (lrchelp@wcccd.edu) · Disability Support Services (313) 496-2634."]],
+dates:[["Aug 25","Term begins"],["Sep 1","Labor Day — no class"],["Sep 2 / Sep 8","Last day for 100% / 50% refund"],["Nov 26–30","Thanksgiving break"],["Nov 29","Last day to drop with a W"],["Dec 13","Term ends"]],
+schedule:[
+["1","8/25","Introductions · syllabus · register for MindTap · diagnostic essay","Read Chapters 1–5 & 8"],
+["2","9/8","Pretest · Chapters 1–5 & 8","Read Ch 16 (Description) & Ch 17 (Narration) · Douglass & “Summer School” readings + questions · 7 video tutorials (thesis → coherent paragraphs)"],
+["3","9/15","Discuss Douglass & “Summer School” · Ch 16–17 · writing workshop","Narrative Essay assigned — due 9/22"],
+["4","9/22","NARRATIVE ESSAY DUE · review for Quiz 1 · fragments, run-ons & splices (24t–24u) · workshop","Study for Quiz 1 · read Ch 9 · Declaration & MLK readings · fragment/run-on tutorials"],
+["5","9/29","QUIZ 1 (essay, process, format) · discuss Declaration & MLK · subject–verb (24a) · Ch 9 · workshop","Example Essay assigned — due 10/6 · subject–verb tutorial"],
+["6","10/6","EXAMPLE ESSAY DUE · review for Quiz 2 · pronouns (24k–24o) · outlining workshop","Study for Quiz 2 · midterm topics discussed · pronoun tutorials · read Ch 11"],
+["7","10/13","QUIZ 2 (fragments, run-ons, splices) · MIDTERM WRITING ASSIGNMENT · Ch 11","Comparison/Contrast Essay assigned — due 10/20"],
+["8","10/20","COMPARISON/CONTRAST ESSAY DUE · review for Quiz 3 · verb errors (24b–24g) · intro/conclusion workshop","Study for Quiz 3 · read Ch 14, 19, 20 · Staples & Cofer readings"],
+["9","10/27","QUIZ 3 (subject–verb agreement) · discuss Staples & Cofer · Ch 14, 19, 20","Cause & Effect Essay + outline assigned — due 11/10 · Ch 24 Check Your Understanding"],
+["10","11/3","Adverb/adjective & modifier errors · faulty parallelism (24w) · transitions workshop","Study for Quiz 4 · read Ch 15 · punctuation tutorials · “Can Employees Be Fired…” reading"],
+["11","11/10","CAUSE & EFFECT ESSAY + OUTLINE DUE · review for Quiz 4 · punctuation & mechanics · in-class assignment","—"],
+["12","11/17","QUIZ 4 (pronouns) · discuss “Can Employees Be Fired…” · Ch 15 (Argumentation)","Argumentative Essay + outline assigned — due 11/24"],
+["13","11/24","ARGUMENTATIVE ESSAY + OUTLINE DUE · review for Quiz 5 · Ch 23 · in-class assignment","Study for Quiz 5 · “Defund the Police” reading"],
+["14","12/1","QUIZ 5 (commas & apostrophes) · discuss reading · Ch 22 · review for Parts I & II of the final","Review for the final writing assignment · study for the post-test"],
+["15","12/8","FINAL WRITING ASSIGNMENT (Part I) · POST-TEST (Part II) — computer classroom, 90 minutes, starts at 12:00 sharp","—"]]
+};
+
+function renderSyllabus(){
+  let h='<div class="crumb">Course document</div><h2 class="pg">The ENG 119 Syllabus</h2><p class="tagline">Condensed for quick reference. The official PDF and Blackboard announcements always govern.</p>';
+  h+='<div class="row" style="margin-bottom:16px"><a class="btn orange" style="text-decoration:none" href="syllabus.pdf" target="_blank" rel="noopener">📄 Open the full official syllabus (PDF)</a></div>';
+  h+='<div class="card"><h4>Course & instructor</h4><table class="syl-table">'+SYL.info.map(r=>'<tr><td class="k">'+esc(r[0])+'</td><td>'+esc(r[1])+'</td></tr>').join("")+'</table></div>';
+  h+='<div class="card"><h4>How your grade is built</h4><table class="syl-table">'+SYL.grading.map(r=>'<tr><td class="k">'+esc(r[0])+'</td><td><b>'+esc(r[1])+'</b></td></tr>').join("")+'</table><p class="small-muted" style="margin-top:8px">Scale: '+esc(SYL.scale)+'</p></div>';
+  h+='<div class="card"><h4>The essays</h4><table class="syl-table"><tr><th>Essay</th><th>Length</th><th>Notes</th></tr>'+SYL.essays.map(r=>'<tr><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'</td><td class="small-muted">'+esc(r[2])+'</td></tr>').join("")+'</table><p class="small-muted" style="margin-top:8px">Every essay: five paragraphs, typed, double-spaced, Times New Roman 12, heading top left, title centered and unstyled, last name + page number top right.</p></div>';
+  h+='<div class="card"><h4>The policies that decide grades</h4>'+SYL.policies.map(p=>'<div class="principle"><div class="pn">§</div><div><h5>'+esc(p[0])+'</h5><p>'+esc(p[1])+'</p></div></div>').join("")+'</div>';
+  h+='<div class="card"><h4>Important dates — Fall 2025</h4><table class="syl-table">'+SYL.dates.map(r=>'<tr><td class="k">'+esc(r[0])+'</td><td>'+esc(r[1])+'</td></tr>').join("")+'</table></div>';
+  h+='<div class="card"><h4>Week by week</h4><div style="overflow-x:auto"><table class="syl-table sched"><tr><th>Wk</th><th>Date</th><th>In class</th><th>Assigned / coming up</th></tr>'+SYL.schedule.map(r=>'<tr><td>'+esc(r[0])+'</td><td style="white-space:nowrap">'+esc(r[1])+'</td><td>'+esc(r[2])+'</td><td class="small-muted">'+esc(r[3])+'</td></tr>').join("")+'</table></div><p class="small-muted" style="margin-top:10px">Condensed from the official Fall 2025 syllabus. The instructor may revise the schedule — check Blackboard announcements and the PDF above for the authoritative version.</p></div>';
+  setMain(h);
+}
 /* ============ SECOND WORKSHOP PASSAGES (harder) ============ */
 const EDIT2 = {};
 MODULES.forEach(md=>{ if(md.edit){ md.edits=[md.edit]; if(EDIT2[md.id]) md.edits.push(EDIT2[md.id]); } });
@@ -1291,11 +1342,13 @@ function renderSidebar(){
     const p=mastery(md.id);
     h+='<button class="nav-item '+(view.name==="mod"&&view.id===md.id?"active":"")+'" data-go="mod:'+md.id+'"><span class="nv-num">'+(md.label||md.num)+'</span><span class="nv-t">'+esc(md.title)+'</span><span class="nv-pct '+(p>=80?"done":"")+'">'+(p>=80?"✓ ":"")+p+"%</span></button>";
   });
+  h+='<div class="nav-sec">Course</div>';
+  h+='<button class="nav-item '+(view.name==="syllabus"?"active":"")+'" data-go="syllabus"><span class="nv-num">§</span><span class="nv-t">Course Syllabus</span></button>';
   h+='<div class="nav-sec">Tools</div>';
   h+='<button class="nav-item '+(view.name==="notes"?"active":"")+'" data-go="notes"><span class="nv-num">❧</span><span class="nv-t">Lessons Learned</span></button>';
   nav.innerHTML=h;
   nav.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{ const g=b.dataset.go;
-    if(g==="dash")go({name:"dash"}); else if(g==="warmup")go({name:"warmup"}); else if(g==="notes")go({name:"notes"}); else go({name:"mod",id:g.split(":")[1],tab:"lesson"}); });
+    if(g==="dash")go({name:"dash"}); else if(g==="warmup")go({name:"warmup"}); else if(g==="syllabus")go({name:"syllabus"}); else if(g==="notes")go({name:"notes"}); else go({name:"mod",id:g.split(":")[1],tab:"lesson"}); });
   $("#storageNote").textContent = store.ok ? "Progress saves in this browser. Export a backup anytime." : "This viewer can't save between sessions — export your progress before closing.";
   $("#themeBtn").textContent = state.theme==="dark" ? "◑ Light mode" : "◐ Dark mode";
 }
@@ -1306,6 +1359,7 @@ function render(){ renderSidebar();
   if(view.name==="dash") renderDash();
   else if(view.name==="mod") renderModule();
   else if(view.name==="warmup") renderWarmup();
+  else if(view.name==="syllabus") renderSyllabus();
   else if(view.name==="notes") renderNotes();
 }
 
