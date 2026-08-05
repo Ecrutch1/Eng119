@@ -183,6 +183,11 @@ h2.pg{font-family:var(--serif);font-size:40px;line-height:1.08;margin-bottom:6px
 .syl-table td.k{font-weight:700;white-space:nowrap;width:1%;padding-right:18px}
 .syl-table.sched td{font-size:13px}
 .syl-table tr:last-child td{border-bottom:none}
+.syl-chip{display:inline-block;background:var(--plum-soft);color:var(--plum-ink);border-radius:99px;padding:3px 10px;font-size:11px;font-weight:700;margin:2px 4px 2px 0;cursor:pointer;white-space:nowrap;transition:background .12s}
+.syl-chip:hover{background:var(--orange-soft)}
+.quick-syl{display:flex;gap:14px;align-items:center;cursor:pointer;transition:box-shadow .15s}
+.quick-syl:hover{box-shadow:0 6px 18px var(--shadow-lg)}
+.mh-when{font-size:12.5px;margin-top:10px;opacity:.9;background:rgba(255,255,255,.14);display:inline-block;padding:5px 12px;border-radius:99px}
 
 /* buttons */
 .btn{background:linear-gradient(135deg,var(--plum),var(--hero2));color:#fff;border:none;border-radius:11px;padding:11px 22px;font-size:14.5px;font-weight:700;box-shadow:0 3px 10px var(--shadow);transition:transform .12s,box-shadow .12s}
@@ -323,11 +328,12 @@ textarea:focus{outline:none;border-color:var(--plum);box-shadow:0 0 0 3px var(--
   <aside id="sidebar">
     <div class="brand">
       <h1>ENG<span>119</span> <span style="color:#fff">Companion</span></h1>
-      <p>A practice companion for <b>English 119 — English I</b> at Wayne County Community College District. Quiz prep and essay coaching, aligned to the course syllabus.</p>
+      <p>The practice companion for <b>ENG 119 — English I</b> at WCCCD.</p>
       <div class="brand-rank" id="brandRank"></div>
     </div>
     <nav id="nav"></nav>
     <div class="side-foot">
+      <button id="aboutBtn">ℹ About this app</button>
       <button id="themeBtn">◐ Dark mode</button>
       <button id="exportBtn">Export progress</button>
       <label for="importFile">Import progress<input type="file" id="importFile" accept=".json"></label>
@@ -357,31 +363,32 @@ window.onerror = function(msg, src, line){
 };
 </script>
 <script>
-/* ============ TRACK I — QUIZ PREP (mapped to the ENG 119 quiz sequence) ============ */
+/* ============ TRACK I — QUIZ PREP (mapped to the ENG 119 weekly tests, Summer 2026) ============ */
 const MODULES = [
 
 {
 id:"q1-essay", num:1, label:"Q1", title:"The Essay, the Writing Process & Format", part:"Quiz Prep", track:"quiz",
-tagline:"Everything Quiz 1 covers — structure, process, and the format rules that cost easy points.",
-pair:"Chapters 1–5 and 8 (pg. 3–129, 184–200) — the essay and the writing process — plus the MindTap video tutorials on thesis statements, organizing, introductions and conclusions, topic sentences, supporting ideas, and unified and coherent paragraphs.",
+tagline:"What the first weeks' tests cover — structure, process, and the MLA format rules that cost easy points.",
+pair:"Steps to Writing Well 3–11 (1-1 through 1-4c) on prewriting, 19–23 (1-6 through 1-7) on the rhetorical situation, and 31–43 (2-1 through 2-5) on the thesis — plus the MLA format template, title rules, and capitalization material on Blackboard.",
+when:"Weeks 1–3 tests — Syllabus · Steps 3–11 · Steps 19–23 · MLA template proof · Steps 31–43",
 lesson:{
-intro:"Quiz 1 tests three things: what an essay is, how the writing process works, and whether you know the course's format rules. None of it is hard — but every semester students lose points on exactly these questions. Learn them once, keep them all term.",
+intro:"The first weeks' tests check three things: what an essay is, how the writing process works, and whether you can prove you know the MLA format rules. None of it is hard — but every semester students lose points on exactly these questions. Learn them once, keep them all term.",
 points:[
 {h:"The five-paragraph shape", p:"Every ENG 119 essay has five paragraphs: an introduction that ends in your thesis, three body paragraphs that each develop one supporting idea, and a conclusion that brings the essay to a close without simply repeating the intro."},
 {h:"The thesis statement", p:"One sentence, usually the last sentence of your introduction, stating the single main idea of the whole essay — your topic plus your point about it. 'Social media' is a topic; 'Social media makes it harder for students to focus in class' is a thesis."},
 {h:"Topic sentences", p:"Each body paragraph opens with a sentence stating what that paragraph will prove. Every other sentence in the paragraph must support it — that's unity at the paragraph level."},
 {h:"The writing process has stages — in order", p:"Prewriting (journal writing, brainstorming, clustering, freewriting, outlining) → drafting → revising (rethinking ideas, reorganizing, strengthening support) → editing and proofreading (grammar, punctuation, spelling). Revising is about ideas; editing is about errors. They are not the same step."},
-{h:"How your essays are graded: unity, support, coherence", p:"Straight from the syllabus. Unity: one topic in the thesis, discussed throughout. Support: every sentence and paragraph develops the thesis. Coherence: ideas tied together from sentence to sentence and paragraph to paragraph."},
-{h:"The format rules — free points if you know them", p:"Typed, double-spaced, Times New Roman 12 pt, 1-inch margins. Top left of page one, on separate lines: your name, professor's name, course name, date (22 September 2025 style). Title centered above the essay — no underline, no italics, no bold, no title page. Last name and page number in the top right of every page. At least 500 words, five paragraphs."}
+{h:"What graders look for: unity, support, coherence", p:"The classic trio behind every essay grade. Unity: one topic in the thesis, discussed throughout. Support: every sentence and paragraph develops the thesis. Coherence: ideas tied together from sentence to sentence and paragraph to paragraph."},
+{h:"The MLA format rules — free points if you know them", p:"Typed, double-spaced, Times New Roman 12 pt, 1-inch margins. Top left of page one, on separate lines: your name, professor's name, course name, date (19 May 2026 style). Title centered above the essay — no underline, no italics, no bold, no title page. Last name and page number in the top right of every page. Use the MLA format template from Blackboard — there's a test on proving you did."}
 ],
-quote:{t:"Unity: you present one topic in a thesis statement and discuss that idea throughout the paper.", s:"ENG 119 syllabus — the first thing your essays are graded for"}
+quote:{t:"Written work is required weekly.", s:"ENG 119 course description — and the weekly Blackboard tests hold you to it"}
 },
 takeaways:[
 "Five paragraphs: intro ending in a thesis, three body paragraphs, conclusion.",
 "Thesis = topic + your point about it, in one sentence at the end of the intro.",
 "Process in order: prewrite → draft → revise → edit. Revising is ideas; editing is errors.",
 "Grading trio: unity, support, coherence.",
-"Format: TNR 12, double-spaced, heading top left, title centered and unstyled, last name + page number top right, 500+ words."
+"MLA format: TNR 12, double-spaced, heading top left, title centered and unstyled, last name + page number top right — use the Blackboard template."
 ],
 drills:[
 {type:"mc", q:"Which of these is a thesis statement?",
@@ -399,7 +406,7 @@ drills:[
 {type:"mc", q:"What's the difference between revising and editing?",
  choices:["They're two names for the same step.","Revising fixes spelling; editing fixes ideas.","Revising rethinks ideas and organization; editing corrects grammar, punctuation and spelling.","Editing comes first."], answer:2,
  explain:"Revise the thinking, then edit the sentences. Students who only proofread haven't revised."},
-{type:"mc", q:"Your essay discusses one clear thesis from start to finish. The syllabus calls that…",
+{type:"mc", q:"Your essay discusses one clear thesis from start to finish. Writing teachers call that…",
  choices:["support","coherence","unity","format"], answer:2,
  explain:"Unity: one topic in a thesis statement, discussed throughout the paper. Support develops it; coherence ties it together."},
 {type:"mc", q:"Which title line is formatted correctly for your essay's first page?",
@@ -410,9 +417,9 @@ drills:[
  explain:"Name, professor, course, date (day month year — 22 September 2025). Your last name + page number go in the top RIGHT of every page."}
 ],
 assess:[
-{q:"The minimum length for an ENG 119 essay is:", choices:["300 words","500 words","1,000 words","No minimum"], answer:1},
-{q:"An ENG 119 essay has how many paragraphs?", choices:["Three","Four","Five","As many as needed"], answer:2},
-{q:"'You organize and tie your ideas together from one sentence to the next' — the syllabus calls this:", choices:["unity","support","coherence","development"], answer:2},
+{q:"ENG 119 papers must follow which format style?", choices:["APA","MLA","Chicago","Any consistent style"], answer:1},
+{q:"A classic five-paragraph essay has:", choices:["an intro and four body paragraphs","an intro, three body paragraphs, and a conclusion","five body paragraphs","a thesis and four conclusions"], answer:1},
+{q:"'You organize and tie your ideas together from one sentence to the next' — writing teachers call this:", choices:["unity","support","coherence","development"], answer:2},
 {q:"Which font and size are required?", choices:["Arial 11","Calibri 12","Times New Roman 12","Any serif font"], answer:2},
 {q:"Freewriting and clustering are techniques for:", choices:["editing","prewriting","proofreading","documentation"], answer:1}
 ]
@@ -420,10 +427,11 @@ assess:[
 
 {
 id:"q2-fragments", num:2, label:"Q2", title:"Fragments, Run-ons & Comma Splices", part:"Quiz Prep", track:"quiz",
-tagline:"The three sentence crimes Quiz 2 is built on.",
-pair:"Section 24t–24u, Sentence Fragments, Run-ons, and Comma Splices (pg. 604–608), plus the MindTap video tutorials “Revising Sentence Fragments” and “Revising Run-ons and Comma Splices.”",
+tagline:"The three sentence crimes the Week 6 material is built on.",
+pair:"Steps 203–209 (9-1 through 9-2a) and Sections 24t–24v, Sentence Fragments, Run-ons, and Comma Splices (pg. 604–608).",
+when:"Week 6 tests — Steps 203–209 and Steps 106–114 · study it Weeks 4–6",
 lesson:{
-intro:"A complete sentence needs a subject, a verb, and a complete thought. Break any of those and you've written a fragment; jam two sentences together and you've written a run-on or a comma splice. These are the 'major errors' the course objectives name first — and Quiz 2 tests nothing else.",
+intro:"A complete sentence needs a subject, a verb, and a complete thought. Break any of those and you've written a fragment; jam two sentences together and you've written a run-on or a comma splice. These are the 'major errors' the course competencies name first — and the Week 6 material drills exactly this.",
 points:[
 {h:"The fragment", p:"A piece of a sentence punctuated as if it were whole. Three common types: missing a subject ('Went to the store after class.'), missing a verb ('The student in the back row with all the questions.'), or a dependent clause left alone ('Because the bus was late.'). That last one is the sneakiest — it has a subject and verb, but 'because' makes it incomplete."},
 {h:"The run-on (fused sentence)", p:"Two complete sentences with nothing between them: 'The library closes at nine I still have two chapters left.' Nothing joins them — they're fused."},
@@ -432,7 +440,7 @@ points:[
 {h:"Fix #3: comma + FANBOYS", p:"A comma plus a coordinating conjunction — for, and, nor, but, or, yet, so: 'The library closes at nine, so I still have two chapters left to finish at home.' The comma needs the conjunction; the conjunction needs the comma."},
 {h:"Fix #4: subordinate one clause", p:"Make one sentence depend on the other: 'Because the library closes at nine, I'll finish the last two chapters at home.' Note: the dependent clause now needs its main clause — leave it alone and you're back to a fragment."}
 ],
-quote:{t:"Write varied and coherent sentences free of major errors.", s:"ENG 119 Course Objective #1"}
+quote:{t:"Write varied and coherent sentences free of major errors.", s:"ENG 119 Expected Competencies — the first one listed"}
 },
 takeaways:[
 "Complete sentence = subject + verb + complete thought.",
@@ -479,9 +487,10 @@ assess:[
 {
 id:"q3-svagree", num:3, label:"Q3", title:"Subject–Verb Agreement", part:"Quiz Prep", track:"quiz",
 tagline:"Singular subjects take singular verbs — even when a phrase gets in the way.",
-pair:"Section 24a, Subject–Verb Agreement (pg. 588–591), plus the MindTap video tutorial “Subject-verb Agreement.”",
+pair:"Sections 24a through 24g, Verbs (pg. 588–594) — covered Week 7 alongside the Gansberg paper materials.",
+when:"Week 7 — Verbs (588–594) · agreement errors cost points on every paper all term",
 lesson:{
-intro:"Agreement errors happen for one main reason: something comes between the subject and the verb, and the writer matches the verb to the wrong word. Quiz 3 is a collection of exactly those traps. Learn to find the true subject and the quiz solves itself.",
+intro:"Agreement errors happen for one main reason: something comes between the subject and the verb, and the writer matches the verb to the wrong word. Every agreement test is a collection of exactly those traps. Learn to find the true subject and the questions solve themselves.",
 points:[
 {h:"Find the subject, ignore the interrupters", p:"'The box of old textbooks IS heavy.' The subject is box, not textbooks. Prepositional phrases (of, in, with, along with, as well as) between subject and verb never change the number."},
 {h:"Indefinite pronouns are (almost all) singular", p:"Each, either, neither, everyone, everybody, anyone, somebody, nobody, one — all singular. 'Each of the students HAS a folder.' 'Everybody WAS on time.'"},
@@ -490,7 +499,7 @@ points:[
 {h:"'There is / There are' — the subject comes after", p:"'There ARE three reasons to revise early.' The subject is reasons. Flip the sentence to check: three reasons are there."},
 {h:"Collective nouns and doesn't/don't", p:"A group acting as one unit is singular: 'The class MEETS on Mondays.' 'The committee HAS decided.' And 'doesn't' goes with singular subjects: 'She DOESN'T mind' — never 'she don't.'"}
 ],
-quote:{t:"The box of old textbooks is heavy — the subject is the box, no matter how many textbooks pile into the phrase.", s:"The one trick behind most of Quiz 3"}
+quote:{t:"The box of old textbooks is heavy — the subject is the box, no matter how many textbooks pile into the phrase.", s:"The one trick behind most agreement questions"}
 },
 takeaways:[
 "Match the verb to the true subject, not to the nearest noun.",
@@ -537,18 +546,19 @@ assess:[
 {
 id:"q4-pronouns", num:4, label:"Q4", title:"Pronouns", part:"Quiz Prep", track:"quiz",
 tagline:"Agreement, clear reference, and no mid-essay identity changes.",
-pair:"Chapter 24, Sections 24k–24o, Pronouns, Pronoun Reference, and Pronoun-Antecedent Agreement (pg. 596–599), plus the MindTap tutorials “Making Pronouns Agree with Antecedents” and “Making Pronoun Reference Clear.”",
+pair:"Chapter 24, Sections 24k–24o, Pronouns, Pronoun Reference, and Pronoun-Antecedent Agreement (pg. 596–599) — a cross-reference; not a scheduled reading this term, but tested grammar in every paper you submit.",
+when:"Core grammar for every paper and the final exam essay — no single test week, so drill it early",
 lesson:{
-intro:"Quiz 4 covers the three pronoun skills the syllabus names: agreement with antecedents, clear reference, and consistency. Add pronoun case (I vs. me) and you have the whole quiz.",
+intro:"Pronoun errors come in three flavors: agreement with antecedents, unclear reference, and mid-essay identity changes. Add pronoun case (I vs. me) and you have the whole skill — one that shows up in every paper the course grades.",
 points:[
 {h:"A pronoun agrees with its antecedent", p:"The antecedent is the word the pronoun replaces. Singular antecedent, singular pronoun: 'Each student must bring HIS OR HER outline' — because 'each' is singular. Plural fix if 'his or her' feels clumsy: 'All students must bring THEIR outlines.'"},
 {h:"Indefinite antecedents are singular", p:"Everyone, somebody, each, neither — the same list from subject-verb agreement. 'Everybody turned in HIS OR HER essay,' or recast the sentence to plural."},
 {h:"Reference must be clear", p:"'When Marcus emailed the professor, HE was confused.' Who was confused? If the reader has to guess which noun the pronoun points to, rewrite: 'Marcus was confused when he emailed the professor.'"},
 {h:"Vague this, it, and they", p:"'They say the final is hard.' Who are they? 'In the syllabus IT explains the policy' — what is it? Give every pronoun a real antecedent, or replace it with the noun: 'The syllabus explains the policy.'"},
-{h:"Don't shift person mid-essay", p:"'When A STUDENT revises early, YOU catch more errors' shifts from third person to second. Pick one and hold it: 'When students revise early, they catch more errors.' The syllabus grades for consistent pronouns."},
+{h:"Don't shift person mid-essay", p:"'When A STUDENT revises early, YOU catch more errors' shifts from third person to second. Pick one and hold it: 'When students revise early, they catch more errors.' Graders read shifting person as careless proofreading."},
 {h:"Case: I/he/she vs. me/him/her", p:"Subjects take I/he/she: 'She and I studied together.' Objects take me/him/her: 'The tutor helped her and me.' Test compounds by dropping the other person: 'The tutor helped me' — so 'her and me' is right, 'she and I' would be wrong there."}
 ],
-quote:{t:"Consistent pronouns and verb tense — the syllabus lists them among the grammar your essays are examined for.", s:"ENG 119 grading criteria"}
+quote:{t:"Every pronoun needs one clear antecedent — if the reader has to guess, the sentence has failed.", s:"The rule behind every pronoun question"}
 },
 takeaways:[
 "Pronouns agree with their antecedents in number — 'each' and 'everyone' are singular.",
@@ -595,9 +605,10 @@ assess:[
 {
 id:"q5-commas", num:5, label:"Q5", title:"Commas & Apostrophes", part:"Quiz Prep", track:"quiz",
 tagline:"Where commas go, where they don't, and the apostrophe rules everyone mixes up.",
-pair:"The Using Punctuation and Mechanics class session, plus the MindTap tutorials “Using Commas,” “Using Colons and Semicolons,” “Using Apostrophes,” and “Using Capital Letters.”",
+pair:"Commas: Section 25d (pg. 617–621), covered Week 7 with the Gansberg paper. Apostrophes: Section 25g (pg. 626–627), covered Week 9 with parallelism and modifiers.",
+when:"Weeks 7 & 9 — commas arrive with the summary paper, apostrophes with the Week 9 grammar cluster",
 lesson:{
-intro:"Quiz 5 is the punctuation quiz. Commas have four core jobs in this course; apostrophes have two. Master those six rules — and the three classic traps — and this is the easiest quiz of the semester.",
+intro:"Punctuation is where careless points go to die. Commas have four core jobs in this course; apostrophes have two. Master those six rules — and the three classic traps — and this is the easiest material of the semester.",
 points:[
 {h:"Comma job #1: items in a series", p:"'Bring your draft, your outline, and a pen.' A comma after each item except the last."},
 {h:"Comma job #2: after an introductory element", p:"'After the review session, I rewrote my thesis.' 'Because the bus was late, I missed the workshop.' The comma marks where the wind-up ends and the sentence begins."},
@@ -606,7 +617,7 @@ points:[
 {h:"Apostrophes: possession and contraction", p:"Possession: the student's essay (one student), the students' essays (many students). Contraction: it's = it is, you're = you are, they're = they are. That's the whole system."},
 {h:"The three traps", p:"ITS vs. IT'S: 'its' is possessive (the class has its rules), 'it's' means 'it is' — the apostrophe here marks a contraction, not possession. Plain plurals never take apostrophes: 'essays for sale,' not 'essay's for sale.' And no comma between a subject and its verb, however long the subject runs."}
 ],
-quote:{t:"Misuse or omission of punctuation marks — listed in the syllabus among the grammar mistakes your essays are examined for.", s:"ENG 119 grading criteria"}
+quote:{t:"Misuse or omission of punctuation marks — the classic entry on every grader's checklist of major errors.", s:"Why this module pays for itself"}
 },
 takeaways:[
 "Commas: series · after introductions · both sides of interrupters · before FANBOYS joining sentences.",
@@ -623,8 +634,8 @@ drills:[
  choices:["nothing — no comma needed","a comma","a semicolon","a dash"], answer:1,
  explain:"An introductory dependent clause takes a comma where the main sentence begins: 'Because the quiz starts at noon, arrive by 11:50.'"},
 {type:"mc", q:"Which handles the interrupter correctly?",
- choices:["Professor Floyd who grades on unity support and coherence returned our essays.","Professor Floyd, who grades on unity, support, and coherence returned our essays.","Professor Floyd, who grades on unity, support, and coherence, returned our essays.","Professor Floyd who grades on unity, support, and coherence, returned our essays."], answer:2,
- explain:"The interrupting clause takes a comma on BOTH sides — and the series inside it takes its own commas."},
+ choices:["Professor McHugh who accepts no late work posted the test.","Professor McHugh, who accepts no late work posted the test.","Professor McHugh, who accepts no late work, posted the test.","Professor McHugh who accepts no late work, posted the test."], answer:2,
+ explain:"The interrupting clause takes a comma on BOTH sides — like a pair of handles. One comma alone is always wrong."},
 {type:"mc", q:"'I wrote the essay ___ I forgot to write the outline.' Which completion is correct?",
  choices:[", ",", but ","but","; but,"], answer:1,
  explain:"Comma + FANBOYS joins two complete sentences. A comma alone is a splice; 'but' without the comma misses the rule this quiz tests."},
@@ -654,24 +665,25 @@ assess:[
 },
 
 {
-id:"q6-final", num:6, label:"★", title:"Final Exam Review (Part II)", part:"Quiz Prep", track:"quiz",
-tagline:"Everything, all at once — the way the post-test asks it.",
-pair:"Cumulative — revisit the chapters and tutorials from Q1–Q5, plus the Chapter 24 “Check Your Understanding: Major Errors in Grammar” assignment.",
+id:"q6-final", num:6, label:"★", title:"Final Exam & Posttest Review", part:"Quiz Prep", track:"quiz",
+tagline:"The last class meeting, all at once — the posttest and the final exam essay.",
+pair:"Cumulative — revisit the chapters and skills from Q1–Q5, the Week 11 review readings, and the MindTap Posttest instructions.",
+when:"Week 12 · 4 Aug — MindTap Posttest + Final Exam Essay, both in class, no make-ups",
 lesson:{
-intro:"Part II of the final exam covers the elements of an essay, the writing process, grammar, and punctuation — the whole semester in one sitting, closed-book, in the computer classroom, ninety minutes. This module mixes every topic the way the exam will. If you can clear these drills cold, you're ready.",
+intro:"The last class meeting carries seventeen percent of your grade in one sitting: the MindTap Posttest (7%, multiple choice) and the Final Exam Essay (10%), both completed in class. This module mixes the semester's grammar and essay skills the way the posttest will. If you can clear these drills cold, you're ready.",
 points:[
-{h:"What Part II covers", p:"The elements of an essay (thesis, topic sentences, five-paragraph structure), the writing process (prewriting through editing), the grammar quizzes (fragments, run-ons, splices; subject-verb agreement; pronouns), and punctuation (commas, apostrophes)."},
-{h:"How to study for a cumulative exam", p:"Don't reread — retest. Retake the assessments in modules Q1–Q5 until each is 100%. Run the Daily Warm-up all week before the exam; it resurfaces your weak spots automatically."},
-{h:"The exam-day rules that cost points", p:"It starts promptly at the beginning of class and runs ninety minutes; arrive late and you get only what's left. No notes, no textbook. Miss it without documented emergency and prior contact, and it's a zero."},
-{h:"Remember Part I", p:"The final writing assignment is the other half — five paragraphs, 800–1,000 words, on a department topic revealed that day. Everything in the Essay Coach track is Part I preparation."}
+{h:"What the last day holds", p:"The MindTap Posttest — a multiple-choice test over the semester's writing and grammar material — and the Final Exam Essay, written in class. Both happen during the class period, then and only then."},
+{h:"How to study for a cumulative test", p:"Don't reread — retest. Retake the assessments in modules Q1–Q5 until each is 100%. Run the Daily Warm-up all week before the exam; it resurfaces your weak spots automatically."},
+{h:"The rules that cost points", p:"No make-ups, no rescheduling — the syllabus says so twice. Arrive on time and expect to work the whole session. Even a snow-day closure doesn't reschedule the final; your grade would simply be computed out of 90 points instead of 100."},
+{h:"The essay half", p:"The Final Exam Essay is a one-sitting, in-class essay: plan first, five-paragraph shape, MLA habits, and time saved at the end to proofread. Module E3 — The MindTap Essays — is built for exactly this kind of writing."}
 ],
-quote:{t:"Part 2 will assess you on the elements of an essay, the writing process, grammar, and punctuation.", s:"ENG 119 syllabus — the final exam"}
+quote:{t:"I will not schedule make-up MindTap assignments, nor will I reschedule the final exam essay.", s:"ENG 119 syllabus — Week 12 is one shot"}
 },
 takeaways:[
-"Part II = essay elements + writing process + all quiz grammar + punctuation.",
+"Week 12 = MindTap Posttest (7%) + Final Exam Essay (10%), both in class.",
 "Study by retesting, not rereading: drive every Q-module assessment to 100%.",
-"Arrive on time — the clock doesn't wait, and notes aren't allowed.",
-"Part I is the essay: 800–1,000 words, five paragraphs, department topic."
+"No make-ups, no rescheduling — even a college closure doesn't move it.",
+"For the essay half: plan fast, write the five-paragraph shape, proofread last."
 ],
 drills:[
 {type:"mc", q:"'Revising' an essay primarily means:",
@@ -686,9 +698,9 @@ drills:[
 {type:"mc", q:"'A student should proofread carefully, or you will lose points.' The error:",
  choices:["comma splice","shift in person","agreement","apostrophe"], answer:1,
  explain:"Third person ('a student') jumps to second ('you'). Hold one: 'Students should proofread carefully, or they will lose points.'"},
-{type:"mc", q:"'The final exam which counts for thirty-five percent has two parts.' The fix:",
- choices:["Add one comma before 'which'","Set 'which counts for thirty-five percent' off with commas on BOTH sides","Add a semicolon","No change"], answer:1,
- explain:"Interrupters take a pair of commas: 'The final exam, which counts for thirty-five percent, has two parts.'"},
+{type:"mc", q:"'The final exam essay which is written in class cannot be rescheduled.' The fix:",
+ choices:["Add one comma before 'which'","Set 'which is written in class' off with commas on BOTH sides","Add a semicolon","No change"], answer:1,
+ explain:"Interrupters take a pair of commas: 'The final exam essay, which is written in class, cannot be rescheduled.'"},
 {type:"mc", q:"Which thesis is strongest for a five-paragraph essay?",
  choices:["Community college is a topic worth discussing.","There are many things to say about community college.","Community college gave me three things a university couldn't: small classes, low debt, and a second chance.","What is community college really like?"], answer:2,
  explain:"Topic + claim + a built-in map of three supporting points — the body paragraphs practically write themselves."},
@@ -705,33 +717,34 @@ assess:[
 {q:"'Everyone in both classes (was/were) invited.'", choices:["were","was","either","neither"], answer:1},
 {q:"'The students essays were returned.' The correct possessive:", choices:["students's","student's","students'","no apostrophe needed"], answer:2},
 {q:"'The tutor explained the comma rule, it finally made sense.' This is a:", choices:["fragment","comma splice","fused run-on","correct sentence"], answer:1},
-{q:"Your essays are graded for:", choices:["length, vocabulary, neatness","unity, support, coherence — plus grammar and format","creativity only","citations only"], answer:1}
+{q:"Strong ENG 119 essays show:", choices:["length, vocabulary, neatness","unity, support, coherence — plus clean grammar and MLA format","creativity only","citations only"], answer:1}
 ]
 },
-/* ============ TRACK II — ESSAY COACH (the five assigned essays, in course order) ============ */
+/* ============ TRACK II — ESSAY COACH (the ENG 119 writing assessments, Summer 2026) ============ */
 
 {
-id:"e1-narrative", num:7, label:"E1", title:"The Narrative / Descriptive Essay", part:"Essay Coach", track:"essay",
-tagline:"Essay #1 · 500 words · tell one true story that makes one point.",
-pair:"Chapter 16, Description (pg. 382–404) and Chapter 17, Narration (pg. 405–420).",
+id:"e1-narrative", num:7, label:"E1", title:"The First Paper — Narration & Description", part:"Essay Coach", track:"essay",
+tagline:"Paper #1 · 15% of your grade · MLA format · one true story, one dominant impression.",
+pair:"Body paragraphs and description: Steps 48–64 (3-1 through 3-4) and 382–388 (16-1 through 16-1a), with “Salvation” and “The Battle of the Ants” as models — plus the instructions and rubric posted Week 3.",
+when:"Assigned Week 3 · due Tuesday 9 June by 4:30 p.m., via Blackboard — no late papers",
 lesson:{
-intro:"Your first essay asks you to tell a story — and telling a story for a grade is different from telling one to a friend. It still needs a thesis, five paragraphs, and a point the reader carries away. The narrative gives you the easiest material of the semester (your own life) and the same grading standards as every other essay: unity, support, coherence.",
+intro:"Your first paper asks you to tell and show — and doing that for a grade is different from doing it for a friend. It still needs a thesis, a clear shape, and a point the reader carries away. It gives you the easiest material of the semester (your own experience) and the same standards as every other paper: unity, support, coherence, and clean MLA format.",
 points:[
 {h:"A narrative still has a thesis", p:"Not 'I'm going to tell you about my first day of college' but the point of the story: 'My first day of college taught me that asking for help is a strength, not a weakness.' The story exists to prove that sentence."},
 {h:"Structure the story in three movements", p:"Three body paragraphs map naturally onto beginning, middle, and end — the situation, the turning point, the outcome. Each gets a topic sentence that moves the story AND the point forward."},
-{h:"Show with concrete, specific detail", p:"'The advisor's office smelled like burnt coffee, and my registration form was shaking in my hand' beats 'I was very nervous.' Specific details are your support — they're what the grader means by a developed paragraph."},
-{h:"Descriptive writing builds one dominant impression", p:"If the assignment leans descriptive, choose the single feeling you want the reader to have — cramped, chaotic, peaceful — and make every detail feed it. A detail that doesn't feed the impression breaks unity."},
+{h:"Show with concrete, specific detail", p:"'The advisor's office smelled like burnt coffee, and my registration form was shaking in my hand' beats 'I was very nervous.' Specific details are your support — they're what the grader means by a developed paragraph. It's why the course pairs this paper with 'Salvation' and 'The Battle of the Ants' — both prove points through observed detail."},
+{h:"Descriptive writing builds one dominant impression", p:"Choose the single feeling you want the reader to have — cramped, chaotic, peaceful — and make every detail feed it. A detail that doesn't feed the impression breaks unity."},
 {h:"Use time transitions to keep coherence", p:"At first, later that morning, by the time, afterward, finally. Narrative coherence is mostly chronology made visible."},
 {h:"First person is expected here", p:"'I' is correct and natural in a narrative — just keep it consistent (no drifting into 'you') and keep the tense steady: a story that starts in past tense stays in past tense."}
 ],
-quote:{t:"First Essay — Narrative/Descriptive: 500 words, five paragraphs, submitted through Blackboard by the start of class.", s:"ENG 119 assignment specifications"}
+quote:{t:"The first out-of-class paper: no research, MLA format, submitted via Blackboard — no late papers get credit.", s:"ENG 119 assignment specifications"}
 },
 takeaways:[
 "The story proves a point — write the thesis before you write the story.",
 "Three body paragraphs: situation, turning point, outcome.",
 "Support = specific, concrete, sensory detail — show, don't summarize.",
 "One dominant impression; every detail feeds it.",
-"Steady first person, steady past tense, visible time transitions."
+"Steady first person, steady past tense, visible time transitions — and the MLA template."
 ],
 drills:[
 {type:"mc", q:"Which is the strongest narrative thesis?",
@@ -748,10 +761,10 @@ drills:[
  explain:"Vivid, yes — but it feeds anxiety, not warmth. In descriptive writing, every detail serves the dominant impression, or it goes."},
 {type:"mc", q:"'I walk into the interview and sat down before they offered.' The problem:",
  choices:["First person isn't allowed","Tense shift — 'walk' (present) to 'sat' (past)","Comma splice","Nothing"], answer:1,
- explain:"Pick a tense and hold it: 'I walked in and sat down.' Steady tense is part of narrative coherence — and it's on the grading list."},
+ explain:"Pick a tense and hold it: 'I walked in and sat down.' Steady tense is part of narrative coherence — and graders hunt for it."},
 {type:"mc", q:"Which set of transitions fits a narrative essay best?",
  choices:["for example, in addition, furthermore","at first, later that morning, by evening, finally","in contrast, similarly, on the other hand","as a result, consequently, therefore"], answer:1,
- explain:"Narratives run on time. The other sets belong to example, comparison, and cause-effect essays — later in the course."}
+ explain:"Narratives run on time. The other sets belong to example, comparison, and cause-effect writing — modes you'll meet later in the course."}
 ],
 edit:{
 title:"The overstuffed opening scene",
@@ -762,161 +775,168 @@ required:[["interview"],["hand|shak"],["breath"]],
 model:"I had never interviewed for anything in my life. In the parking lot my hands shook so hard that my folder rattled, and I pressed them flat against my jeans. One breath. Another. Then I pulled the door open and walked in."
 },
 compose:{
-prompt:"Plan Essay #1. Write four sentences and label them: THESIS (the point your story proves), then three TOPIC SENTENCES — one each for the situation, the turning point, and the outcome. Do not write the essay — just the skeleton.",
+prompt:"Plan Paper #1. Write four sentences and label them: THESIS (the point your story proves), then three TOPIC SENTENCES — one each for the situation, the turning point, and the outcome. Do not write the paper — just the skeleton.",
 min:40, max:140,
 rubric:["My thesis states the point of the story, not just the event.","Each topic sentence moves the story forward in time.","Each topic sentence connects back to the thesis.","I can picture the concrete details I'd use in each paragraph.","One tense, one person (I), all the way through."]
 },
 assess:[
-{q:"Essay #1's required length is:", choices:["300 words","500 words","650-800 words","800-1,000 words"], answer:1},
+{q:"The first out-of-class paper is worth:", choices:["5% of the course grade","10%","15%","20%"], answer:2},
 {q:"A narrative thesis states:", choices:["when the story happened","the point the story proves","the names of people involved","that a story will follow"], answer:1},
 {q:"'Support' in a narrative comes mostly from:", choices:["quotations from experts","specific, concrete, sensory details","statistics","dialogue only"], answer:1},
-{q:"A descriptive essay's details should all build:", choices:["suspense","one dominant impression","toward a surprise ending","word count"], answer:1}
+{q:"If the paper reaches Blackboard at 4:45 p.m. on the due date:", choices:["it loses one letter grade","it earns no credit — the deadline was 4:30","it can be emailed instead","it gets a 24-hour grace period"], answer:1}
 ]
 },
 
 {
-id:"e2-example", num:8, label:"E2", title:"Development by Example", part:"Essay Coach", track:"essay",
-tagline:"Essay #2 · 500–650 words · prove your point with specifics.",
-pair:"Chapter 9, Development by Example (pg. 203–217).",
+id:"e2-summary", num:8, label:"E2", title:"The Summary — Your Gansberg Paper", part:"Essay Coach", track:"essay",
+tagline:"Paper #2 · 20% — the biggest paper of the term · accurate, neutral, and in your own words.",
+pair:"“37 Who Saw Murder Didn't Call the Police” (pg. 708–711, 35 — first text), “Writing a Summary” (pg. 195–196, 8-4), and the Week 7 materials: the Straight Summary Rubric, IPAC and quoting correctly, opening line conventions, treatment of authors' names, and the in-text citation and Works Cited pages for the Gansberg paper.",
+when:"Assigned Week 7 · due Tuesday 7 July by 4:30 p.m., via Blackboard — MLA format + Works Cited",
 lesson:{
-intro:"The example essay makes a general claim and proves it with specific instances. It is the purest test of the syllabus's second grading criterion — support — because the whole essay IS support. The skill: choosing examples that are specific, relevant, and developed, not just listed.",
+intro:"The second paper is a straight summary of Martin Gansberg's famous news article about the 1964 murder of Kitty Genovese — and it is worth more than any other single paper in the course. A summary is a test of reading and discipline: report what the article says, all of what matters, and nothing it doesn't say. Your opinion stays outside the frame.",
 points:[
-{h:"The thesis makes a general claim", p:"'Working students learn time-management skills that other students don't.' The claim is general on purpose — the examples make it concrete."},
-{h:"One example (or one cluster) per body paragraph", p:"Each body paragraph opens with a topic sentence naming its example's angle, then DEVELOPS the example: who, what happened, and — crucially — how it proves the thesis."},
-{h:"Specific beats plentiful", p:"One developed example ('my coworker Denise, who schedules her study hours like shifts…') outweighs five vague ones ('many people manage their time well'). A list of undeveloped examples is a disguised generalization."},
-{h:"Every example must earn its place", p:"Relevance is unity: an interesting example that doesn't prove YOUR thesis is a unity error, no matter how good the story is."},
-{h:"Transitions of illustration", p:"For example, for instance, to illustrate, consider, one such case. These signal to your reader — and your grader — that support is arriving."},
-{h:"Close the loop", p:"After each example, one sentence ties it back: 'That semester of double shifts is exactly the discipline the classroom never taught me.' Example → analysis → thesis. Don't make the grader connect the dots for you."}
+{h:"What a summary is — and is not", p:"A summary re-tells a text's main idea and key points, in your own words, in far fewer words. It is NOT a review, a reaction, or an argument. 'I think,' 'sadly,' and 'this shows how terrible people are' all disqualify sentences from a straight summary."},
+{h:"The opening line convention", p:"Sentence one carries three things: the author's full name, the article's exact title in quotation marks, and the main idea. 'In “37 Who Saw Murder Didn't Call the Police,” Martin Gansberg reports that…' After the first mention, he is Gansberg — last name only, never 'Martin.'"},
+{h:"Neutral verbs, present tense", p:"Gansberg reports, describes, notes, recounts. Summaries of written texts run in the present tense: 'Gansberg traces the attacks hour by hour,' not 'traced.' Loaded verbs ('rants,' 'proves') smuggle opinion back in."},
+{h:"Your words — not word swaps", p:"Real paraphrase restructures the sentence and rethinks the wording. Swapping synonyms into the author's sentence pattern is still plagiarism, and the paper passes through a plagiarism detector. If a phrase must stay, quote it exactly — introduce it, punctuate it, cite it (IPAC)."},
+{h:"Keep the proportions honest", p:"Cover the article's key points in the article's order and emphasis. Don't spend half your summary on one vivid detail, don't add background the article never gives, and don't correct or improve the story."},
+{h:"The MLA machinery", p:"This paper carries the course's citation apparatus: MLA in-text citation for anything quoted, a Works Cited page on its own page (Insert → Page Break), hanging indents, and the title rules — quotation marks for an article title, no quotation marks around your own title."}
 ],
-quote:{t:"Support: you develop and explain your thesis statement with each sentence and paragraph.", s:"ENG 119 grading criteria"}
+quote:{t:"Straight summary: accurate, neutral, complete, and in your own words — the writer's opinions stay out of it.", s:"The standard your Gansberg paper is graded against"}
 },
 takeaways:[
-"General claim in the thesis; specific proof in the paragraphs.",
-"One developed example per body paragraph beats a list of five vague ones.",
-"Develop = who, what happened, and how it proves the thesis.",
-"An off-thesis example is a unity error, however interesting.",
-"Announce support ('for instance') and close the loop after it."
+"Summary = the article's ideas, your words, no opinions anywhere.",
+"Open with author + exact title + main idea; after that he's Gansberg, last name only.",
+"Present tense, neutral verbs: reports, describes, notes.",
+"Paraphrase restructures; synonym-swapping is plagiarism. Quote exactly or not at all.",
+"MLA in-text citations + a Works Cited page on its own page, hanging indent and all."
 ],
 drills:[
-{type:"mc", q:"Which is the most usable thesis for an example essay?",
- choices:["Examples are important in writing.","My neighborhood has many hidden costs that outsiders never see.","This essay will give three examples.","There are many neighborhoods in Detroit."], answer:1,
- explain:"A general claim that specific examples can prove. The others are either about essays themselves or make no claim."},
-{type:"mc", q:"Which example is SPECIFIC enough to build a paragraph on?",
- choices:["Lots of people struggle with bus schedules.","Transportation can be a problem for many students.","Some students have long commutes.","My classmate Andre leaves home at 5:40 a.m. to make our 8:00 class, because the 17 bus only runs hourly."], answer:3,
- explain:"A name, a time, a route, a reason — that's an example you can develop. The others are generalizations wearing example costumes."},
-{type:"mc", q:"A body paragraph in this essay should contain:",
- choices:["as many examples as possible, briefly","a topic sentence, one developed example, and a sentence tying it to the thesis","the thesis restated three times","only description"], answer:1,
- explain:"Topic sentence → developed example → closed loop. Depth over quantity."},
-{type:"mc", q:"Your thesis: 'Campus food options fail students on a budget.' Which example breaks unity?",
- choices:["The cafeteria's cheapest lunch combo rose to $9.50 this year.","The vending machines take cards but charge a 50-cent fee.","The library café gives free refills to faculty only.","The gym added new treadmills last spring."], answer:3,
- explain:"True, maybe — but it proves nothing about food costs. Interesting-but-irrelevant is still off-topic."},
-{type:"mc", q:"Which transition signals an incoming example?",
- choices:["In contrast","For instance","Nevertheless","As a result"], answer:1,
- explain:"For example, for instance, to illustrate, consider — the illustration family. The others signal contrast and cause."},
-{type:"mc", q:"What's missing? 'Many students work full time. My cousin works at the airport. Therefore student jobs are common.'",
- choices:["A longer list of workers","Development — what happens in the example and how it proves the claim","A rhetorical question","Nothing"], answer:1,
- explain:"The example is named but never developed, and the leap to 'therefore' is unearned. Show the cousin's schedule, the trade-offs, the point."}
+{type:"mc", q:"Which opening line follows the summary convention?",
+ choices:["This article is about a murder that people watched.","In “37 Who Saw Murder Didn't Call the Police,” Martin Gansberg reports that dozens of neighbors witnessed a fatal attack without calling for help.","Martin wrote an article about Kitty Genovese and it was very sad.","I read “37 Who Saw Murder Didn't Call the Police” and learned a lot about human nature."], answer:1,
+ explain:"Author's full name, exact title in quotation marks, main idea, neutral verb — all in one sentence. The others miss the title, the author, or the neutrality."},
+{type:"mc", q:"After the first mention, you refer to the author as:",
+ choices:["Martin","Mr. Gansberg the reporter","Gansberg","the writer of the story"], answer:2,
+ explain:"Full name at first mention, last name alone after that. First names alone are never used for authors in academic writing."},
+{type:"mc", q:"Which sentence belongs in a straight summary?",
+ choices:["Shockingly, not one neighbor cared enough to help.","Gansberg notes that the attacks happened in three separate stages over half an hour.","I could never live in a neighborhood like that.","This article proves that cities destroy compassion."], answer:1,
+ explain:"Neutral verb, article's own content, no judgment. The other three editorialize — they review the events instead of reporting what the article says."},
+{type:"mc", q:"The article says: 'He stabbed her again.' Your draft says: 'He knifed her once more.' This is:",
+ choices:["a good paraphrase","acceptable if it sounds different enough","synonym-swapping — still the author's sentence, still plagiarism","a direct quotation"], answer:2,
+ explain:"Trading words inside the author's structure isn't paraphrase. Rebuild the sentence into your own reporting — or quote the original exactly, with quotation marks and a citation."},
+{type:"mc", q:"Summaries of a written text are written in:",
+ choices:["past tense, since the events happened in 1964","present tense — Gansberg reports, describes, traces","future tense","whatever tense feels natural sentence to sentence"], answer:1,
+ explain:"The text still says what it says: use the literary present for what the author does, even when the events are historical."},
+{type:"mc", q:"IPAC — the course's rule for using a quotation — stands for:",
+ choices:["Introduce it, Punctuate it, Attribute it, Cite it","Italicize, Paraphrase, Abbreviate, Copy","Introduce, Paraphrase, Argue, Conclude","Indent every quotation four lines"], answer:0,
+ explain:"A quotation never floats alone: lead into it, punctuate it correctly, make clear whose words they are, and give the citation."},
+{type:"mc", q:"Your Works Cited page should:",
+ choices:["appear at the bottom of your final paragraph","start on its own page, with a hanging indent for the entry","be emailed separately","list every article you've read this semester"], answer:1,
+ explain:"Insert a page break, center 'Works Cited,' and give the Gansberg entry a hanging indent. Only sources actually cited belong there."}
 ],
 edit:{
-title:"The generalization parade",
-brief:"This paragraph claims to give examples but never lands one. Rewrite it in 65 words or fewer with ONE real, invented-but-specific example — a person, a class, a number — that proves the point.",
-text:"There are many ways in which studying with other people can be very helpful for students. A lot of students find that study groups are useful in many different situations. For example, people can help each other with various things they do not understand. In addition, it is also the case that studying together makes things generally easier for everyone involved.",
+title:"The editorial pretending to be a summary",
+brief:"This opening is vague, opinionated, and never names the author or title. Rewrite it in 60 words or fewer as a straight summary opening: author's full name, the exact article title in quotation marks, the main idea — and not one word of opinion.",
+text:"This very shocking article is basically about how a bunch of people in a neighborhood in New York heard a woman screaming and getting attacked and it is honestly so sad that nobody really did anything to help her. In my opinion this kind of thing shows exactly what is wrong with our society in this day and age.",
+target:60,
+required:[["gansberg"],["37|thirty-?seven|murder"],["report|describ|recount|trace|detail"]],
+model:"In “37 Who Saw Murder Didn't Call the Police,” Martin Gansberg reports that thirty-eight residents of a Queens neighborhood watched or heard a killer attack Catherine Genovese in three separate assaults over half an hour, and that none of them called the police while she was still alive. Gansberg traces the night hour by hour."
+},
+compose:{
+prompt:"Plan your Gansberg paper. Write and label: OPENING (one sentence — author's full name, exact title, main idea, neutral verb), then KEY POINTS — three lines listing the article's key points in the article's order. No opinions anywhere.",
+min:40, max:150,
+rubric:["My opening sentence has the author's full name, the exact title in quotation marks, and the main idea.","Every line reports the article — no reactions, judgments, or additions.","My key points follow the article's own order and emphasis.","Everything is phrased in my own sentence structures, not the article's.","I know what I'd cite and where the Works Cited entry goes."]
+},
+assess:[
+{q:"The Gansberg summary paper is worth:", choices:["10%","15%","20%","25%"], answer:2},
+{q:"A straight summary may include:", choices:["your reaction, briefly","the article's key points in your own words","suggestions for how the neighbors should have acted","background you found online"], answer:1},
+{q:"First mention of the author is 'Martin Gansberg.' Later mentions are:", choices:["Martin","Gansberg","Mr. Martin","he, every time"], answer:1},
+{q:"This paper must include:", choices:["a title page","MLA in-text citation and a Works Cited page","at least three outside sources","a personal conclusion paragraph"], answer:1},
+{q:"Swapping synonyms into the author's sentence structure is:", choices:["paraphrase","summary","plagiarism","quotation"], answer:2}
+]
+},
+
+{
+id:"e3-inclass", num:9, label:"E3", title:"The MindTap Essays — Writing in One Sitting", part:"Essay Coach", track:"essay",
+tagline:"The midterm & final MindTap essays · 10% each · typed in class, one sitting, no make-ups.",
+pair:"MindTap Midterm Essay — Instructions (Week 6) and MindTap Final Essay — Instructions (Week 10), with drafting and revision in Steps 64–79 (3-5 through 3-8a) and 96–103 (5-1 through 5-5c). The same skills carry the Final Exam Essay in Week 12.",
+when:"Midterm: Week 6 (23 June) · Final: Week 11 (28 July) · both written during class, submitted via MindTap",
+lesson:{
+intro:"Twice this semester — plus once more at the final exam — you will sit down in a computer lab and produce a whole essay in one class period. No make-ups, no reopened assignments, plagiarism detection on. One-sitting essays reward one thing above all: a plan made in the first ten minutes. This module is that plan, rehearsed until it's automatic.",
+points:[
+{h:"Know what these are", p:"The MindTap midterm and final essays are typed in class, submitted through MindTap, checked for plagiarism, and never made up or accepted late. Each is worth 10% — together they match your Gansberg paper. The Week 12 Final Exam Essay works the same way for another 10%."},
+{h:"Budget the clock before you type", p:"Split the period into three unequal blocks: plan (about 10 minutes), write (most of the time), proofread (the last 10 minutes). Students who fail one-sitting essays almost always spent minute one typing and minute last still typing."},
+{h:"The ten-minute skeleton", p:"Read the prompt twice. Turn it into a thesis — topic plus your point. Jot three supporting points, one line each, strongest last. That skeleton IS your outline; now the essay is filling in blanks."},
+{h:"Ride the five-paragraph autopilot", p:"Intro ending in your thesis → three body paragraphs, each opening with a topic sentence from your skeleton → conclusion that closes without repeating word for word. Under pressure, structure is what saves you."},
+{h:"Save the last ten minutes to proofread", p:"Sweep for the big five: fragments, run-ons and splices, subject–verb agreement, its/it's and other apostrophes, and tense or person shifts. One clean sweep beats writing one extra sentence."},
+{h:"Showing up IS the assignment", p:"These essays exist only during that class period — 'then and only then.' Miss the class, miss the 10%. Put both dates in your phone now, and arrive early enough to get a working computer."}
+],
+quote:{t:"MindTap assignments scheduled to be completed during the class period will be completed then and only then.", s:"ENG 119 syllabus"}
+},
+takeaways:[
+"In-class essays: midterm (10%) + final (10%) + final exam essay (10%). No make-ups, ever.",
+"Three blocks: ~10 minutes planning, the bulk writing, 10 minutes proofreading.",
+"Plan = thesis + three topic-sentence points, strongest last.",
+"The five-paragraph shape is your autopilot under pressure.",
+"Proofread the big five: fragments, splices, agreement, apostrophes, shifts."
+],
+drills:[
+{type:"mc", q:"Your class period for an in-class essay is about 100 minutes. The smartest split:",
+ choices:["100 minutes of writing — no time to waste","10 planning · 80 writing · 10 proofreading","50 planning · 50 writing","30 writing · 70 revising"], answer:1,
+ explain:"Plan first, write most, proofread last. The plan is what keeps the 80 writing minutes moving in one direction."},
+{type:"mc", q:"The prompt: 'Describe a person who changed how you see the world.' Which is the strongest quick thesis?",
+ choices:["Many people have changed how I see the world.","In this essay I will describe my uncle.","My uncle Ray, a night-shift nurse, taught me that patience is a kind of strength.","People can really change your perspective on things."], answer:2,
+ explain:"A specific person plus the point the essay will prove — the three body paragraphs can each show one side of that patience."},
+{type:"mc", q:"Ten minutes in, your mind is blank. The course-approved move:",
+ choices:["Stare until inspiration arrives","Freewrite on the prompt for three minutes — write anything, then mine it for a thesis","Text a friend for ideas","Write the conclusion first"], answer:1,
+ explain:"Freewriting is the course's own prewriting tool: momentum first, judgment second. Three messy minutes almost always surface a usable point."},
+{type:"mc", q:"With eight minutes left and one body paragraph unwritten, you should:",
+ choices:["Skip proofreading and write until time is called","Write a shorter version of the paragraph, then still proofread the whole essay","Delete the essay and start cleaner","Leave a note apologizing to the grader"], answer:1,
+ explain:"A complete, proofread essay with one lean paragraph beats a longer draft full of uncaught errors. Structure and correctness carry the grade."},
+{type:"mc", q:"Your final proofreading sweep should hunt FIRST for:",
+ choices:["fancier vocabulary","fragments, run-ons, agreement errors, apostrophes, and tense shifts","a better title","places to add quotes"], answer:1,
+ explain:"The big five are the 'major errors' graders flag on sight — and the exact material of your Track I modules."},
+{type:"mc", q:"You wake up sick on MindTap midterm day. What does the syllabus say happens?",
+ choices:["You can take it next week","You can email the essay from home","There is no make-up — the assignment happens then and only then","MindTap lets you take it anytime that month"], answer:2,
+ explain:"The syllabus is blunt: no make-up MindTap assignments. Guard these dates like a work shift."}
+],
+edit:{
+title:"The exam opening that never lands",
+brief:"This in-class essay opening waffles for a whole paragraph without stating a thesis. Rewrite it in 55 words or fewer: a direct thesis about working while in college, plus a preview of three points — the way a planned first paragraph should read.",
+text:"In today's society there are many different opinions when it comes to the topic of whether students should work while they are in college. There are a lot of various factors that basically need to be considered in most situations. It is definitely a very complicated issue for everyone involved, and each and every student is different.",
 target:55,
-required:[["stud"],["group|partner|together"],["[0-9]|exam|quiz|test|class"]],
-model:"Studying with a partner catches what studying alone misses. Before our second math exam, my classmate Reggie and I traded practice problems for an hour; he caught my sign errors, and I explained factoring until he could do it without notes. We both scored fifteen points higher than on the first exam."
+required:[["work"],["college|school|student"],["three|time|money|discipline"]],
+model:"Working through college costs sleep, but it pays in three currencies a classroom can't print: money that keeps me enrolled, discipline that organizes my week, and confidence with strangers. My twenty hours at the pharmacy have taught me more about deadlines than any planner ever did."
 },
 compose:{
-prompt:"Plan Essay #2. Write your general-claim THESIS, then three TOPIC SENTENCES, each naming a different specific example (real ones from your life — a person, a place, a number). Label each line.",
+prompt:"Run a ten-minute drill. Pick a practice prompt — 'Describe a place that shaped you,' 'What makes a good boss?' or one of your own. Write and label: THESIS (one sentence), then I., II., III. — three topic-sentence points, strongest last. Time yourself; speed is the skill.",
 min:40, max:140,
-rubric:["My thesis is a general claim an example could prove or disprove.","Each topic sentence names a genuinely specific example.","Each example clearly proves MY claim, not just an interesting story.","No two examples prove the same thing the same way.","I could develop each example for a full paragraph: who, what, so what."]
+rubric:["I produced this skeleton in about ten minutes.","My thesis answers the prompt with a point, not just a topic.","Each Roman numeral could open a body paragraph as written.","The strongest point sits last.","I could write the full essay from this without stopping to think."]
 },
 assess:[
-{q:"Essay #2's required length:", choices:["500 words exactly","500–650 words","650–800 words","800–1,000 words"], answer:1},
-{q:"The strongest support comes from examples that are:", choices:["numerous and brief","specific, relevant, and developed","famous","emotional"], answer:1},
-{q:"An interesting example that doesn't prove your thesis is:", choices:["good color","a unity error","extra credit","a hook"], answer:1},
-{q:"After presenting an example, you should:", choices:["start the next one immediately","tie it back to the thesis in a sentence","apologize for it","repeat it"], answer:1}
-]
-},
-
-{
-id:"e3-cause", num:9, label:"E3", title:"Cause & Effect", part:"Essay Coach", track:"essay",
-tagline:"Essay #3 · 650–800 words · outline required · why things happen, or what happens next.",
-pair:"Chapter 14, Causal Analysis (pg. 312–329) — and if you use any sources, Chapter 19 (Conducting Research) and Chapter 20 (Documenting Sources).",
-lesson:{
-intro:"The cause-and-effect essay analyzes WHY something happens or WHAT results from it. It's the first essay that requires a submitted outline — and the first where sloppy logic, not sloppy grammar, is the biggest danger. 'After' does not mean 'because.'",
-points:[
-{h:"Choose your direction", p:"Either analyze causes (why are evening sections filling up faster than day sections?) or effects (what happened after the campus went cashless?). Pick one direction for a five-paragraph essay — three causes OR three effects, one per body paragraph."},
-{h:"The thesis previews your three", p:"'Enrollment in evening sections has surged for three reasons: second-shift work schedules, cheaper childcare at night, and the new express bus route.' The map is built in — and your outline is already half done."},
-{h:"Beware the post hoc trap", p:"'I wore my green hoodie and passed the quiz' — sequence isn't causation. For every cause you claim, ask: can I show HOW it produces the effect, not just that it came first?"},
-{h:"Distinguish major causes from minor ones", p:"Rank your three. Put the strongest cause in the third body paragraph — the emphatic final position — so the essay builds instead of fizzling."},
-{h:"Cause-effect transitions", p:"Because, since, as a result, consequently, therefore, one effect of, this leads to. These words are the connective tissue the grader looks for under 'coherence.'"},
-{h:"The outline is graded — build it first", p:"Thesis at the top; Roman numerals I–III for your three causes or effects; two or three supporting details under each. Write the outline before the draft and the draft becomes filling in blanks."}
-],
-quote:{t:"For three of your essays (the cause and effect, comparison/contrast, and argumentative essays), you must also submit an outline with them.", s:"ENG 119 syllabus"}
-},
-takeaways:[
-"Pick one direction: three causes OR three effects.",
-"Thesis previews the three; outline mirrors the thesis.",
-"After ≠ because — show the mechanism, not just the sequence.",
-"Save the strongest cause or effect for the final body paragraph.",
-"Outline first: thesis, I–III, two or three details under each."
-],
-drills:[
-{type:"mc", q:"Which thesis is built correctly for a five-paragraph cause essay?",
- choices:["Many students drop out for many reasons, and it has many effects.","Students in their first year leave college for three main reasons: work conflicts, unclear advising, and the cost of books and fees.","Dropping out is bad.","Why do students drop out?"], answer:1,
- explain:"One direction (causes), three previewed points, one per future body paragraph. Option A tries to ride both directions at once."},
-{type:"mc", q:"'The week after the coffee cart closed, quiz scores dropped. The cart closure clearly hurt grades.' The flaw:",
- choices:["Too specific","Post hoc reasoning — sequence treated as causation","Wrong transition words","Split infinitive"], answer:1,
- explain:"It came after; that alone doesn't mean it came because. Show a mechanism or find the real cause (midterms week, maybe?)."},
-{type:"mc", q:"Where should your STRONGEST cause go?",
- choices:["First body paragraph — lead with strength","Second body paragraph — bury it safely","Third body paragraph — the emphatic final position","The conclusion"], answer:2,
- explain:"Essays build. Ending the body on your strongest material lands the argument in the reader's ear — the same emphatic-position rule that works in sentences."},
-{type:"mc", q:"Which transition set belongs to this essay mode?",
- choices:["for instance, to illustrate, consider","meanwhile, at first, finally","as a result, consequently, this leads to","similarly, likewise, in the same way"], answer:2,
- explain:"Cause-effect connectors. The others belong to example, narrative, and comparison essays."},
-{type:"mc", q:"A proper outline for this essay starts with:",
- choices:["your first body paragraph, written out","the thesis statement, then I–III with supporting details","a list of transitions","the conclusion"], answer:1,
- explain:"Thesis on top, three Roman numerals matching your three causes/effects, details beneath each. The outline is submitted and graded."},
-{type:"mc", q:"'Rising textbook prices cause stress.' To develop this into a body paragraph you must add:",
- choices:["more causes","HOW the prices produce the stress — the mechanism, with specifics","a counterargument","a dictionary definition of stress"], answer:1,
- explain:"Name the chain: prices → choosing between the book and groceries → falling behind by week two → the 2 a.m. catch-up panic. Mechanism is what separates analysis from assertion."}
-],
-edit:{
-title:"The kitchen-sink paragraph",
-brief:"This draft paragraph claims one cause but wanders into three, hedges everything, and never shows a mechanism. Rewrite it in 70 words or fewer: ONE cause (the bus schedule), a clear mechanism, and a confident voice.",
-text:"There are quite a few reasons why students are often late to morning classes, such as the bus schedule, and also because of their jobs, and sometimes childcare can basically be an issue too. The bus schedule is probably one reason that could be considered. Due to the fact that the buses do not really come very often, students can sometimes end up being late.",
-target:70,
-required:[["bus"],["late"],["class|morning"]],
-model:"The bus schedule makes lateness almost mathematical. The 17 line reaches campus at 7:52 or 8:22 — nothing in between — so a student whose shift ends at 7:00 either catches the early bus with no margin or walks into an 8:00 class twenty minutes late. Miss the first connection by two minutes and the whole morning collapses."
-},
-compose:{
-prompt:"Build the outline for a practice cause-and-effect essay: pick a topic from your life (why your commute is hard, what happened when you got a smartphone, why a class works). Write: THESIS previewing three causes OR effects, then I., II., III. — one line each, strongest last.",
-min:40, max:140,
-rubric:["I chose ONE direction — all causes or all effects.","My thesis previews exactly the three points in my outline.","For each point, I can explain the mechanism, not just the sequence.","My strongest point is III, in the final position.","This outline could be submitted with the essay as required."]
-},
-assess:[
-{q:"Essay #3 requires:", choices:["500 words","650–800 words plus a submitted outline","800–1,000 words, no outline","a works cited page only"], answer:1},
-{q:"Post hoc reasoning is:", choices:["citing sources late","assuming that what comes after is caused by what came before","using too many effects","outlining backward"], answer:1},
-{q:"A five-paragraph cause essay should analyze:", choices:["three causes AND three effects","three causes OR three effects","one cause only","every possible cause"], answer:1},
-{q:"'Consequently' and 'as a result' signal:", choices:["examples","contrast","cause-effect relationships","chronology"], answer:2}
+{q:"The MindTap midterm and final essays are each worth:", choices:["5%","10%","15%","20%"], answer:1},
+{q:"They are completed:", choices:["at home, over a week","during the class period, typed, via MindTap","by email","in the testing center anytime"], answer:1},
+{q:"If you miss the class period:", choices:["you schedule a make-up","you lose the grade — no make-ups exist","you write it in Blackboard instead","you get half credit"], answer:1},
+{q:"The first ten minutes of an in-class essay are best spent:", choices:["typing the introduction","planning — thesis and three points","proofreading","choosing a font"], answer:1}
 ]
 },
 
 {
 id:"e4-compare", num:10, label:"E4", title:"Comparison / Contrast", part:"Essay Coach", track:"essay",
-tagline:"Essay #4 · 800–1,000 words · outline required · two subjects, one verdict.",
-pair:"Chapter 11, Comparison and Contrast (pg. 246–259).",
+tagline:"The Week 8 mode — two subjects, one verdict, and the pattern that keeps them balanced.",
+pair:"Chapter 11, sections 11-1 through 11-1d (pg. 246–251), with “Once More to the Lake” (pg. 673–677) and, in Week 10, “Two Ways of Viewing the River” (pg. 263–264).",
+when:"Week 8 reading & tests · returns Week 10 — and a likely shape for your in-class essays",
 lesson:{
-intro:"The comparison/contrast essay examines two subjects to reveal something a reader couldn't see by looking at either alone. The killer requirements: a thesis that takes a position (not 'they have similarities and differences'), a consistent organizational pattern, and balanced treatment of both subjects.",
+intro:"The comparison/contrast essay examines two subjects to reveal something a reader couldn't see by looking at either alone. Week 8 pairs the chapter with E. B. White's 'Once More to the Lake' — a writer comparing one place across two lifetimes. The killer requirements: a thesis that takes a position (not 'they have similarities and differences'), a consistent organizational pattern, and balanced treatment of both subjects.",
 points:[
-{h:"The thesis must earn the comparison", p:"'Online and in-person classes have similarities and differences' says nothing. 'For working students, online classes beat in-person ones on flexibility and cost but demand far more self-discipline' — that's a verdict worth 900 words."},
+{h:"The thesis must earn the comparison", p:"'Online and in-person classes have similarities and differences' says nothing. 'For working students, online classes beat in-person ones on flexibility and cost but demand far more self-discipline' — that's a verdict worth an essay."},
 {h:"Point-by-point organization", p:"Each body paragraph takes ONE point of comparison (cost, schedule, discipline) and examines BOTH subjects. This is the pattern that fits five paragraphs best: three points, both subjects each time."},
 {h:"Block organization", p:"All of subject A, then all of subject B (then ideally a paragraph weighing them). Workable, but risky in five paragraphs — it can read like two mini-essays stapled together. If you use block, mirror the same points in the same order."},
 {h:"Balance is a form of fairness — and of support", p:"If in-person classes get two sentences and online classes get nine, the grader sees padding, not comparison. Give both subjects real development on every point."},
 {h:"Compare-contrast transitions", p:"Similarly, likewise, in the same way — and on the other hand, in contrast, whereas, however. These pivots are your coherence markers between subjects."},
-{h:"Parallel treatment, parallel wording", p:"If point one is 'cost,' discuss cost for both subjects in comparable terms. Parallel structure across paragraphs is the same principle as parallel structure inside a sentence — and this essay's outline (also submitted) should show it."}
+{h:"Parallel treatment, parallel wording", p:"If point one is 'cost,' discuss cost for both subjects in comparable terms. Parallel structure across paragraphs is the same principle as parallel structure inside a sentence — Week 9's grammar topic, working at essay scale."}
 ],
-quote:{t:"Coherence: you organize and tie your ideas together from one sentence to the next and one paragraph to the next.", s:"ENG 119 grading criteria — the heart of this essay"}
+quote:{t:"Coherence: you organize and tie your ideas together from one sentence to the next and one paragraph to the next.", s:"The heart of the comparison essay"}
 },
 takeaways:[
 "Thesis takes a position; 'similarities and differences' is not a thesis.",
@@ -931,7 +951,7 @@ drills:[
  explain:"A verdict with named grounds. The first three are observations, announcements, or nothing at all."},
 {type:"mc", q:"Point-by-point organization means:",
  choices:["all of subject A, then all of subject B","each body paragraph covers one point of comparison for BOTH subjects","alternating sentences forever","comparing only the good points"], answer:1,
- explain:"Three points, three body paragraphs, both subjects in each — the shape that fits the five-paragraph requirement best."},
+ explain:"Three points, three body paragraphs, both subjects in each — the shape that fits the five-paragraph essay best."},
 {type:"mc", q:"The main danger of block organization in a five-paragraph essay:",
  choices:["It's against the rules","It reads like two separate mini-essays with no actual comparing","It requires six paragraphs","It can't include transitions"], answer:1,
  explain:"If the A-half and B-half don't mirror the same points in the same order, the reader does the comparison work you were assigned."},
@@ -943,7 +963,7 @@ drills:[
  explain:"Contrast pivots. 'Similarly' and 'likewise' handle the similarity side."},
 {type:"mc", q:"Your three points are cost, schedule, and stress. Your outline should show:",
  choices:["cost for A only, schedule for B only, stress for both","each point with parallel notes for BOTH subjects","whichever subject has more material","the points in random order per subject"], answer:1,
- explain:"Parallel points, parallel treatment, same order — the outline (submitted and graded) makes the symmetry visible before you draft."}
+ explain:"Parallel points, parallel treatment, same order — build the symmetry into the outline and the draft inherits it."}
 ],
 edit:{
 title:"The lopsided comparison",
@@ -956,10 +976,10 @@ model:"On noise, the two rooms might as well be different planets. The library's
 compose:{
 prompt:"Build the outline for a comparison you actually care about (two jobs, two phones, two gyms, two neighborhoods). Write: a THESIS with a verdict, then I., II., III. — one point of comparison each, with a short note for BOTH subjects under every point. Strongest point last.",
 min:50, max:160,
-rubric:["My thesis delivers a verdict, not 'similarities and differences.'","Each Roman numeral is a point of comparison, not a subject.","Both subjects appear under every point, in parallel terms.","The points are ordered to build, strongest last.","I could hand this outline in as required."]
+rubric:["My thesis delivers a verdict, not 'similarities and differences.'","Each Roman numeral is a point of comparison, not a subject.","Both subjects appear under every point, in parallel terms.","The points are ordered to build, strongest last.","I could write a one-sitting essay straight from this outline."]
 },
 assess:[
-{q:"Essay #4 requires:", choices:["500 words","650–800 words","800–1,000 words plus an outline","no outline"], answer:2},
+{q:"In 'Once More to the Lake,' E. B. White compares:", choices:["two different lakes","his boyhood visits to the lake and his return there with his son","a lake and the ocean","camping and hotels"], answer:1},
 {q:"'Subject A and Subject B have similarities and differences' is:", choices:["a strong thesis","not a thesis — it makes no claim","a topic sentence","a conclusion"], answer:1},
 {q:"In point-by-point organization, each body paragraph contains:", choices:["one subject","one point of comparison applied to both subjects","all points for one subject","only similarities"], answer:1},
 {q:"'Whereas' and 'in contrast' signal:", choices:["similarity","examples","difference","causation"], answer:2}
@@ -967,27 +987,28 @@ assess:[
 },
 
 {
-id:"e5-argument", num:11, label:"E5", title:"The Argumentative Essay", part:"Essay Coach", track:"essay",
-tagline:"Essay #5 · 800–1,000 words · outline required · a claim, real reasons, and the other side answered.",
-pair:"Chapter 15, Argumentation (pg. 334–362), with Chapters 19–20 on researching and documenting sources.",
+id:"e5-argument", num:11, label:"E5", title:"Argumentation", part:"Essay Coach", track:"essay",
+tagline:"Week 9's mode — a claim, real reasons, and the other side answered fairly.",
+pair:"Chapter 15, Argumentation, section 15-1 (pg. 334–344), read alongside “Us and Them” and “Putting Up with Hate” — two essays that take positions and earn them.",
+when:"Week 9 reading & tests — and the backbone of strong MindTap and final exam essays",
 lesson:{
-intro:"The argumentative essay is the capstone: take a debatable position, support it with reasons and evidence, and — this is what separates it from every earlier essay — face the strongest objection honestly and answer it. It also carries the course's sharpest rule: use any outside source without documenting it and the essay is a zero.",
+intro:"Argument is the capstone skill: take a debatable position, support it with reasons and evidence, and — this is what separates it from every earlier mode — face the strongest objection honestly and answer it. In this course it comes with a twist: your papers are no-research assignments, so your evidence is reasoning, observation, and experience, marshaled honestly.",
 points:[
 {h:"The claim must be debatable", p:"'Textbooks are expensive' is a fact — nothing to argue. 'The college should adopt free open-source textbooks for all 100-level courses' is a claim a reasonable person could dispute. If nobody could disagree, it isn't an argument."},
-{h:"Reasons are the skeleton; evidence is the muscle", p:"Three reasons, one per body paragraph, each backed by evidence: facts, examples, your own documented experience, or sources. An unsupported reason is just an opinion said louder."},
-{h:"The counterargument is required equipment", p:"Name the strongest objection fairly — 'Publishers argue that open textbooks lack quality control' — then answer it with evidence or reasoning. Dodging the other side doesn't make your case stronger; it makes it look fragile."},
+{h:"Reasons are the skeleton; evidence is the muscle", p:"Three reasons, one per body paragraph, each backed by evidence: facts you can vouch for, examples, your own experience made concrete. An unsupported reason is just an opinion said louder."},
+{h:"The counterargument is required equipment", p:"Name the strongest objection fairly — 'A cashless campus is faster for most students' — then answer it with evidence or reasoning. Dodging the other side doesn't make your case stronger; it makes it look fragile."},
 {h:"Argue to the skeptic, not the choir", p:"Write for the reader who disagrees. That means measured tone, no insults, no ALL CAPS certainty, no 'obviously.' The moment you sound angry, the skeptic stops listening — and so does the grader."},
 {h:"Avoid the classic fallacies", p:"Attacking the person instead of the idea (ad hominem), the false either-or ('either we do this or the college fails'), the bandwagon ('everyone knows'), and the straw man (answering a weaker argument than the one actually made)."},
-{h:"Document or zero — the course's hardest rule", p:"'If you include any outside research in any of your writing assignments, you must document it or you will receive a zero.' If a fact came from anywhere outside your head, cite it. When in doubt, cite — or cut."}
+{h:"No research means NO research", p:"The syllabus closes with it: 'When the assignment instructions say to do no research, do no research. Follow instructions.' Argue from your own head and life. And if an assignment ever does involve a text — like the Gansberg paper — anything taken from it must be cited, or the plagiarism policy applies."}
 ],
-quote:{t:"If you include any outside research in any of your writing assignments, you must document it or you will receive a zero for the assignment.", s:"ENG 119 syllabus — no exceptions"}
+quote:{t:"When the assignment instructions say to do no research, do no research. Follow instructions.", s:"ENG 119 syllabus — its closing words"}
 },
 takeaways:[
 "A claim must be debatable — if nobody could disagree, it's not an argument.",
 "Three reasons, each with evidence; unsupported reasons are loud opinions.",
 "Present the strongest counterargument fairly, then answer it.",
 "Write for the skeptic: measured tone, no fallacies, no 'obviously.'",
-"Outside information gets documented — or the essay gets a zero."
+"Follow instructions: no-research papers use none, and any text you do use gets cited."
 ],
 drills:[
 {type:"mc", q:"Which is a debatable claim?",
@@ -995,7 +1016,7 @@ drills:[
  explain:"'Should' statements invite disagreement. The others are verifiable facts — nothing to argue."},
 {type:"mc", q:"'We should keep the tutoring center open on weekends because it would be good.' What's missing?",
  choices:["A transition","Evidence — 'it would be good' is the claim restated, not a reason","A counterargument","Nothing"], answer:1,
- explain:"Circular support. A real reason points outside itself: usage data, exam schedules, students who work weekdays."},
+ explain:"Circular support. A real reason points outside itself: exam schedules, students who work weekdays, your own Saturday-morning study sessions."},
 {type:"mc", q:"The BEST way to handle the other side's strongest point:",
  choices:["Ignore it — why advertise for the opposition?","Mention a weaker objection instead and defeat that one","State it fairly, then answer it with evidence or reasoning","Mock it"], answer:2,
  explain:"Answering the real objection is what makes an argument trustworthy. Option B is the straw man; A and D lose the skeptic entirely."},
@@ -1005,9 +1026,9 @@ drills:[
 {type:"mc", q:"'Either the college freezes tuition or working students will all drop out.' The fallacy:",
  choices:["straw man","either-or (false dilemma)","ad hominem","appeal to authority"], answer:1,
  explain:"Two options presented as the only two. Real situations have middles — partial freezes, aid, payment plans."},
-{type:"mc", q:"You found a statistic on a government website for your essay. You must:",
- choices:["change a few words so it's yours","use it freely — statistics are facts","document it — cite the source in the essay","avoid statistics"], answer:2,
- explain:"Any outside research, documented — or the assignment is a zero. Rewording without citing is still plagiarism."}
+{type:"mc", q:"Your paper says 'do no research,' but you found a perfect statistic online. You should:",
+ choices:["Work it in without a citation — no one will check","Include it with a citation","Leave it out and argue from your own reasoning and experience","Put it in quotation marks so it's honest"], answer:2,
+ explain:"Follow instructions — the syllabus says so in exactly those words. A no-research paper is graded on YOUR thinking; smuggled research risks the plagiarism policy."}
 ],
 edit:{
 title:"The angry editorial",
@@ -1018,68 +1039,80 @@ required:[["parking"],["administration|college|campus"],["student"]],
 model:"Campus parking needs attention. Last month I circled the north lot for twenty-five minutes and still missed the start of my exam — and mine is a common story at peak hours. The administration has real budget constraints, but a staggered schedule or a shuttle from the overflow lot would cost little and spare students the choice between a ticket and a tardy."
 },
 compose:{
-prompt:"Build the outline for an argument you'd actually make to this college. Write: your debatable CLAIM, three REASONS (one line each, with the evidence you'd use), then COUNTER: the other side's best point and your one-line answer to it.",
+prompt:"Build the outline for an argument you'd actually make to this college. Write: your debatable CLAIM, three REASONS (one line each, with the evidence from your own experience you'd use), then COUNTER: the other side's best point and your one-line answer to it.",
 min:50, max:170,
-rubric:["A reasonable person could disagree with my claim.","Each reason points to real evidence, not just restated opinion.","My counterargument is the other side's BEST point, stated fairly.","My answer to it uses reasoning or evidence, not volume.","Anything from an outside source is marked for citation."]
+rubric:["A reasonable person could disagree with my claim.","Each reason points to real evidence from observation or experience, not restated opinion.","My counterargument is the other side's BEST point, stated fairly.","My answer to it uses reasoning or evidence, not volume.","No smuggled research — this argument stands on my own thinking."]
 },
 assess:[
-{q:"Essay #5 requires:", choices:["500 words","650–800 words","800–1,000 words plus an outline","no specific length"], answer:2},
 {q:"A claim is debatable when:", choices:["it's about a controversial topic","a reasonable person could disagree with it","it uses the word 'should'","it cites a source"], answer:1},
 {q:"Answering a weaker version of your opponent's argument is the:", choices:["ad hominem","straw man","bandwagon","false dilemma"], answer:1},
-{q:"Undocumented outside research in an ENG 119 essay earns:", choices:["a warning","a late penalty","a zero for the assignment","a rewrite opportunity"], answer:2}
+{q:"ENG 119's out-of-class papers call for:", choices:["at least three sources","no research at all","one library database source","a survey you conduct"], answer:1},
+{q:"Using another writer's words or ideas without acknowledgment earns:", choices:["a warning","a late penalty","failure for the assignment — and possibly the course","a rewrite opportunity"], answer:2}
 ]
 }
 ];
-/* ============ COURSE SYLLABUS (condensed from the official Fall 2025 document) ============ */
+/* ============ COURSE SYLLABUS (condensed from the official Summer 2026 document — Prof. McHugh, Section 316) ============ */
 const SYL = {
-info:[["Course","English 119 — English I (3 credit hours)"],["Section","70382-802 · Mondays 12:00–2:55 p.m."],["Location","Ted Scott Campus"],["Prerequisites","“A” in ENG 114, “C” in ENG 115, or Accuplacer placement"],["Instructor","Professor Stacha Floyd · Office C105"],["Office hours","By appointment · Mon 11:00–11:30 · Tue 12:00–2:00 · Wed 11:00–1:30"],["Contact","sfloyd1@wcccd.edu · 734-699-7008"],["Textbook","Steps to Writing Well with Additional Readings, 11th ed. (Wyrick). The MindTap eBook is REQUIRED — all assignments run through it via Blackboard; the hardcopy is optional."]],
-grading:[["Attendance / Participation","10%"],["MindTap, Outlines, In-class & Reading Assignments","10%"],["Quizzes","15%"],["Writing Assignments","30%"],["Final Essay and Exam","35%"]],
+info:[["Course","English 119 — English 1 (3 credit hours)"],["Section","316 · CRN 58460 · Tuesdays 5:00–8:45 p.m."],["Location","Curtis L. Ivery (Downtown) Campus — face-to-face, complemented by Blackboard"],["Prerequisites","None"],["Instructor","Steve McHugh"],["Office hours","By appointment"],["Contact","smchugh1@wcccd.edu — put “ENG 119-316” in the subject field, and email ONLY from your WCCCD Outlook account. He will not answer Gmail, Hotmail, or Yahoo."],["Textbook","Steps to Writing Well with Additional Readings, 11th ed. (Wyrick) + MindTap, via the ACCESS link in Blackboard. MindTap is REQUIRED — its four major assignments alone are 30% of your grade."]],
+grading:[["MindTap Pretest (in class)","3%"],["MindTap Posttest (in class)","7%"],["MindTap Midterm Essay (in class)","10%"],["MindTap Final Essay (in class)","10%"],["First out-of-class paper","15%"],["Second out-of-class paper (Gansberg summary)","20%"],["Tests & homework","20%"],["Final Exam Essay","10%"],["Attendance","5%"]],
 scale:"A 90–100 · B 80–89 · C 70–79 · D 60–69 · E below 60 (no pluses or minuses)",
-essays:[["1. Narrative / Descriptive","500 words","—"],["2. Development by Example","500–650","—"],["Midterm Writing Assignment","500–650","in class"],["3. Cause & Effect","650–800","outline required"],["4. Comparison / Contrast","800–1,000","outline required"],["5. Argumentative","800–1,000","outline required"],["Final Writing Assignment","800–1,000","in class · Part I of final"]],
+essays:[["MindTap Pretest","3%","Week 2 · in class · multiple choice · no make-up"],["First out-of-class paper","15%","due 9 June · MLA format · no research · via Blackboard"],["MindTap Midterm Essay","10%","Week 6 · typed in class · via MindTap · no make-up"],["Second out-of-class paper — the Gansberg summary","20%","due 7 July · MLA + Works Cited · via Blackboard"],["MindTap Final Essay","10%","Week 11 · typed in class · via MindTap · no make-up"],["MindTap Posttest","7%","Week 12 · in class · multiple choice · no make-up"],["Final Exam Essay","10%","Week 12 · in class · no make-up, never rescheduled"]],
 policies:[
-["Submitting essays","Due through Blackboard by the START of class on the due date — never by email. Not submitted through the link = zero."],
-["Late work","ONE late essay allowed all semester, downgraded, and never more than one week late."],
-["Rewrites","An essay turned in on time (except the final) may be rewritten once within a week for a higher grade — if it shows real improvement on the instructor's comments. Late essays get no rewrite."],
-["Outlines","Cause & Effect, Comparison/Contrast, and Argumentative essays must be submitted WITH an outline."],
-["Documentation","Any outside research must be documented, or the assignment receives a zero."],
-["Academic honesty & AI","Plagiarism and AI tools (ChatGPT, Grammarly, and the like) are prohibited on coursework. Violations earn a zero with no resubmission, plus referral to student services."],
-["Quizzes & exams","In class, on time, closed book and closed notes. Arrive late and you get only the remaining time; miss it without documented emergency and prior contact, and it's a zero."],
-["Attendance","Recorded daily; lateness and leaving early count against you. Tutoring help: the Learning Center (lrchelp@wcccd.edu) · Disability Support Services (313) 496-2634."]],
-dates:[["Aug 25","Term begins"],["Sep 1","Labor Day — no class"],["Sep 2 / Sep 8","Last day for 100% / 50% refund"],["Nov 26–30","Thanksgiving break"],["Nov 29","Last day to drop with a W"],["Dec 13","Term ends"]],
+["Deadlines","Blackboard work is due 4:30 p.m. — a half hour BEFORE class — on the due date. One exception: Week 1 and Week 2 coursework is due 11:59 p.m. on 26 May."],
+["No late work. Period.","“There is no such thing as ‘Late Work.’” Only a region-wide power failure or an official college closure excuses it. Submit hours or days early in case of computer trouble — assignments are never reopened."],
+["Submit means SUBMIT","Click Submit in Blackboard, then verify in the Gradebook. Work left “In Progress” earns nothing. Emailed work is never graded — before or after the deadline."],
+["Scroll the whole test","Some tests have one question; some have several. Review the entire test before clicking Submit — unanswered questions earn no credit."],
+["In-class MindTap work","The pretest, posttest, midterm essay, and final essay are completed during the class period, then and only then. No make-ups are scheduled — ever."],
+["Attendance (5%)","Taken every session. Miss two classes or fewer: full credit. A third absence costs half; a fourth costs all of it. Habitual lateness or leaving early also counts against you."],
+["Academic honesty & AI","Work produced by a chatbot (ChatGPT or any generative AI) earns a failing grade. Writing that sounds phony or “too bookish” can trigger a face-to-face oral or written re-assessment. Do your own writing — and when instructions say “do no research,” do none."],
+["Electronic devices","Phones and devices off and stored away. A second infraction costs a full letter grade off your FINAL course grade; each one after that costs another."],
+["Grade book reality check","Blackboard’s “Current Grade” ignores category weights and outstanding grades (like attendance). Treat it as an approximation, not your actual grade."],
+["Getting help","Learning Center tutoring is drop-in. Disability/ACCESS services: 313-496-2962. Distance Learning (Blackboard trouble): 313-496-2684 · distancelearning@wcccd.edu."]],
+dates:[["May 19","First class — Tuesdays, 5:00 p.m."],["May 26, 11:59 p.m.","Week 1 & 2 Blackboard work due (the one late-evening deadline)"],["May 27 / Jun 3","Last day for 100% / 50% refund"],["Jul 28","Last day to withdraw with a W"],["Aug 4","Last class — MindTap Posttest + Final Exam Essay"]],
 schedule:[
-["1","8/25","Introductions · syllabus · register for MindTap · diagnostic essay","Read Chapters 1–5 & 8"],
-["2","9/8","Pretest · Chapters 1–5 & 8","Read Ch 16 (Description) & Ch 17 (Narration) · Douglass & “Summer School” readings + questions · 7 video tutorials (thesis → coherent paragraphs)"],
-["3","9/15","Discuss Douglass & “Summer School” · Ch 16–17 · writing workshop","Narrative Essay assigned — due 9/22"],
-["4","9/22","NARRATIVE ESSAY DUE · review for Quiz 1 · fragments, run-ons & splices (24t–24u) · workshop","Study for Quiz 1 · read Ch 9 · Declaration & MLK readings · fragment/run-on tutorials"],
-["5","9/29","QUIZ 1 (essay, process, format) · discuss Declaration & MLK · subject–verb (24a) · Ch 9 · workshop","Example Essay assigned — due 10/6 · subject–verb tutorial"],
-["6","10/6","EXAMPLE ESSAY DUE · review for Quiz 2 · pronouns (24k–24o) · outlining workshop","Study for Quiz 2 · midterm topics discussed · pronoun tutorials · read Ch 11"],
-["7","10/13","QUIZ 2 (fragments, run-ons, splices) · MIDTERM WRITING ASSIGNMENT · Ch 11","Comparison/Contrast Essay assigned — due 10/20"],
-["8","10/20","COMPARISON/CONTRAST ESSAY DUE · review for Quiz 3 · verb errors (24b–24g) · intro/conclusion workshop","Study for Quiz 3 · read Ch 14, 19, 20 · Staples & Cofer readings"],
-["9","10/27","QUIZ 3 (subject–verb agreement) · discuss Staples & Cofer · Ch 14, 19, 20","Cause & Effect Essay + outline assigned — due 11/10 · Ch 24 Check Your Understanding"],
-["10","11/3","Adverb/adjective & modifier errors · faulty parallelism (24w) · transitions workshop","Study for Quiz 4 · read Ch 15 · punctuation tutorials · “Can Employees Be Fired…” reading"],
-["11","11/10","CAUSE & EFFECT ESSAY + OUTLINE DUE · review for Quiz 4 · punctuation & mechanics · in-class assignment","—"],
-["12","11/17","QUIZ 4 (pronouns) · discuss “Can Employees Be Fired…” · Ch 15 (Argumentation)","Argumentative Essay + outline assigned — due 11/24"],
-["13","11/24","ARGUMENTATIVE ESSAY + OUTLINE DUE · review for Quiz 5 · Ch 23 · in-class assignment","Study for Quiz 5 · “Defund the Police” reading"],
-["14","12/1","QUIZ 5 (commas & apostrophes) · discuss reading · Ch 22 · review for Parts I & II of the final","Review for the final writing assignment · study for the post-test"],
-["15","12/8","FINAL WRITING ASSIGNMENT (Part I) · POST-TEST (Part II) — computer classroom, 90 minutes, starts at 12:00 sharp","—"]]
+["1","5/19","Welcome · syllabus · MLA format template · prewriting (Steps 3–11) · “Superman and Me” · MindTap Pretest instructions","Tests: Syllabus · Steps 3–11 · What the Computer Illiterate Should Do — all due 11:59 p.m. 5/26", ["q1-essay"]],
+["2","5/26","Rhetorical situation (Steps 19–23) · crappy first drafts · freewriting · title rules · “So What’s So Bad about Being So-So?” · MINDTAP PRETEST in class","Tests: Steps 19–23 · MLA template proof · Deadlines for future assignments", ["q1-essay"]],
+["3","6/2","Analytical reading & thesis (Steps 184–191, 195–196, 31–43) · “The Story of an Eyewitness” · boring titles · FIRST PAPER instructions & rubric","Tests: Email subject field · Steps 31–43 · Capitalization rules · Plagiarism · Late-work policy · Student success. From today, everything is due 4:30 p.m.", ["q1-essay","e1-narrative"]],
+["4","6/9","FIRST OUT-OF-CLASS PAPER DUE · body paragraphs & description (Steps 48–64, 382–388) · “Salvation” · “The Battle of the Ants” · catchy titles","Tests: Steps 48–64 · Salvation · Thoreau vocabulary · Title rules (quotes)", ["e1-narrative"]],
+["5","6/16","Drafting & revision (Steps 64–79, 96–103) · effective sentences & illustration (130–139, 152–156) · “Black Men and Public Space” · “A Modest Proposal”","Tests: Steps 96–103 · Black Men and Public Space · Steps 130–139 · Swift vocabulary · A Modest Proposal", ["e3-inclass"]],
+["6","6/23","Fragments & run-ons (Steps 203–209, 604–608) · revision & proofreading (106–114) · IPAC · MINDTAP MIDTERM ESSAY in class","Tests: Steps 203–209 · Steps 106–114 · IPAC and a Professional Writer", ["q2-fragments","e3-inclass"]],
+["7","6/30","Commas (617–621) · “37 Who Saw Murder Didn’t Call the Police” · writing a summary (195–196) · verbs (588–594) · citation & Works Cited for the Gansberg paper · SECOND PAPER instructions + outline","Tests: Straight summary · Summary of Gansberg · IPAC in practice · Authors’ names · Capitalization (Conrad)", ["q3-svagree","q5-commas","e2-summary"]],
+["8","7/7","SECOND OUT-OF-CLASS PAPER (Gansberg summary) DUE · compare & contrast (Steps 246–251) · “Once More to the Lake” · style (142–151)","Tests: Steps 246–251 · Once More to the Lake · Title rules (italics)", ["e2-summary","e4-compare"]],
+["9","7/14","Parallelism (609–612) · argumentation (334–344) · apostrophes (626–627) · modifiers (602–603) · “Us and Them” · “Putting Up with Hate”","Tests: Us and Them · Putting Up with Hate", ["q5-commas","e5-argument"]],
+["10","7/21","Definition (270–275) · “To Bid the World Farewell” · “Two Ways of Viewing the River” · MINDTAP FINAL ESSAY instructions","Tests: To Bid the World Farewell · Two Ways of Viewing the River. Last day to drop with a W: 7/28", ["e3-inclass","e4-compare"]],
+["11","7/28","Review · MindTap Posttest instructions · “Fish Cheeks,” “Flavio,” “Omelas,” “America Runs on Dirty Work” · MINDTAP FINAL ESSAY in class","Test: Your Last Progress Report Grade", ["e3-inclass","q6-final"]],
+["12","8/4","Final exam prep · MINDTAP POSTTEST + FINAL EXAM ESSAY — both in class, no make-ups, never rescheduled","Test: Grade Book Irregularities", ["q6-final"]]]
 };
 
 function renderSyllabus(){
-  let h='<div class="crumb">Course document</div><h2 class="pg">The ENG 119 Syllabus</h2><p class="tagline">Condensed for quick reference. The official PDF and Blackboard announcements always govern.</p>';
+  let h='<div class="crumb">Course document</div><h2 class="pg">The ENG 119 Syllabus</h2><p class="tagline">Summer 2026 · Section 316 · Prof. McHugh — condensed for quick reference. The official PDF and Blackboard always govern.</p>';
   h+='<div class="row" style="margin-bottom:16px"><a class="btn orange" style="text-decoration:none" href="syllabus.pdf" target="_blank" rel="noopener">📄 Open the full official syllabus (PDF)</a></div>';
   h+='<div class="card"><h4>Course & instructor</h4><table class="syl-table">'+SYL.info.map(r=>'<tr><td class="k">'+esc(r[0])+'</td><td>'+esc(r[1])+'</td></tr>').join("")+'</table></div>';
   h+='<div class="card"><h4>How your grade is built</h4><table class="syl-table">'+SYL.grading.map(r=>'<tr><td class="k">'+esc(r[0])+'</td><td><b>'+esc(r[1])+'</b></td></tr>').join("")+'</table><p class="small-muted" style="margin-top:8px">Scale: '+esc(SYL.scale)+'</p></div>';
-  h+='<div class="card"><h4>The essays</h4><table class="syl-table"><tr><th>Essay</th><th>Length</th><th>Notes</th></tr>'+SYL.essays.map(r=>'<tr><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'</td><td class="small-muted">'+esc(r[2])+'</td></tr>').join("")+'</table><p class="small-muted" style="margin-top:8px">Every essay: five paragraphs, typed, double-spaced, Times New Roman 12, heading top left, title centered and unstyled, last name + page number top right.</p></div>';
+  h+='<div class="card"><h4>The writing assessments</h4><table class="syl-table"><tr><th>Assessment</th><th>Weight</th><th>Notes</th></tr>'+SYL.essays.map(r=>'<tr><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'</td><td class="small-muted">'+esc(r[2])+'</td></tr>').join("")+'</table><p class="small-muted" style="margin-top:8px">Both out-of-class papers: MLA format, no research, plagiarism-checked, submitted via Blackboard. Tests &amp; homework (20%) and attendance (5%) complete the grade.</p></div>';
   h+='<div class="card"><h4>The policies that decide grades</h4>'+SYL.policies.map(p=>'<div class="principle"><div class="pn">§</div><div><h5>'+esc(p[0])+'</h5><p>'+esc(p[1])+'</p></div></div>').join("")+'</div>';
-  h+='<div class="card"><h4>Important dates — Fall 2025</h4><table class="syl-table">'+SYL.dates.map(r=>'<tr><td class="k">'+esc(r[0])+'</td><td>'+esc(r[1])+'</td></tr>').join("")+'</table></div>';
-  h+='<div class="card"><h4>Week by week</h4><div style="overflow-x:auto"><table class="syl-table sched"><tr><th>Wk</th><th>Date</th><th>In class</th><th>Assigned / coming up</th></tr>'+SYL.schedule.map(r=>'<tr><td>'+esc(r[0])+'</td><td style="white-space:nowrap">'+esc(r[1])+'</td><td>'+esc(r[2])+'</td><td class="small-muted">'+esc(r[3])+'</td></tr>').join("")+'</table></div><p class="small-muted" style="margin-top:10px">Condensed from the official Fall 2025 syllabus. The instructor may revise the schedule — check Blackboard announcements and the PDF above for the authoritative version.</p></div>';
+  h+='<div class="card"><h4>Important dates — Summer 2026</h4><table class="syl-table">'+SYL.dates.map(r=>'<tr><td class="k">'+esc(r[0])+'</td><td>'+esc(r[1])+'</td></tr>').join("")+'</table></div>';
+  h+='<div class="card"><h4>Week by week</h4><div style="overflow-x:auto"><table class="syl-table sched"><tr><th>Wk</th><th>Due date</th><th>Reading / in class</th><th>Tests &amp; assessments</th><th>Prep in the app</th></tr>'+SYL.schedule.map(r=>'<tr><td>'+esc(r[0])+'</td><td style="white-space:nowrap">'+esc(r[1])+'</td><td>'+esc(r[2])+'</td><td class="small-muted">'+esc(r[3])+'</td><td>'+(r[4]||[]).map(function(id){var m=MODULES.find(function(x){return x.id===id});return m?'<span class="syl-chip" data-golink="'+id+'">'+(m.label||m.num)+' · '+esc(m.title.length>22?m.title.slice(0,21)+'…':m.title)+'</span>':''}).join('')+'</td></tr>').join("")+'</table></div><p class="small-muted" style="margin-top:10px">Condensed from the official Summer 2026 syllabus. Prof. McHugh calls this schedule tentative and treats the Blackboard “Week” modules as the final word — check them (and their Date Pages) every week.</p></div>';
   setMain(h);
+  document.querySelectorAll('[data-golink]').forEach(function(c){c.onclick=function(){go({name:"mod",id:c.dataset.golink,tab:"lesson"})}});
+}
+
+function renderWelcome(){
+  let h='<div class="mod-hero quiz" style="margin-top:6px"><span class="ghost">119</span><div class="mh-crumb">Wayne County Community College District · English 119 — English 1 · Summer 2026</div><h2>Welcome to your course companion</h2><div class="mh-tag">Free practice for the weekly tests and every paper in ENG 119 — built around Prof. McHugh&rsquo;s syllabus.</div></div>';
+  h+='<div class="card"><div class="principle"><div class="pn">1</div><div><h5>Your course sets the targets</h5><p>ENG 119 grades you on weekly Blackboard tests, two out-of-class papers, four in-class MindTap assignments, and a final exam essay — all on a strict no-late-work clock, with the reading in Steps to Writing Well and MindTap.</p></div></div>';
+  h+='<div class="principle"><div class="pn">2</div><div><h5>This app is the practice field</h5><p>Track I preps the grammar and writing-process material the weekly tests draw on, plus the final. Track II coaches the writing: the first paper, the Gansberg summary, the in-class MindTap essays, and the essay modes behind them. Each module tells you where it sits on the syllabus and which textbook pages it pairs with.</p></div></div>';
+  h+='<div class="principle"><div class="pn">3</div><div><h5>Your graded work stays yours</h5><p>Nothing here touches your real assignments — the passages you edit are practice material. The course gives AI-produced work a failing grade; this app builds the muscle, and you do the writing.</p></div></div></div>';
+  h+='<div class="next-steps"><button class="btn orange" id="wlMap">See how it maps to your syllabus →</button><button class="btn" id="wlStart">Start practicing</button></div>';
+  h+='<p class="small-muted" style="margin-top:14px">Progress, streaks and badges save in this browser. Reopen this page anytime via “About this app” in the sidebar.</p>';
+  setMain(h);
+  $("#wlMap").onclick=()=>{ state.welcomed=true; saveState(); go({name:"syllabus"}); };
+  $("#wlStart").onclick=()=>{ state.welcomed=true; saveState(); go({name:"dash"}); };
 }
 /* ============ SECOND WORKSHOP PASSAGES (harder) ============ */
 const EDIT2 = {};
 MODULES.forEach(md=>{ if(md.edit){ md.edits=[md.edit]; if(EDIT2[md.id]) md.edits.push(EDIT2[md.id]); } });
 function partLabel(md){ return md.track==="quiz" ? "Track I · Quiz Prep" : "Track II · Essay Coach"; }
-function crumbFor(md){ return md.track==="quiz" ? "Track I · Quiz Prep — Module "+md.num+" of 6" : "Track II · Essay Coach — Essay "+(md.num-6)+" of 5"; }
+function crumbFor(md){ return md.track==="quiz" ? "Track I · Quiz Prep — Module "+md.num+" of 6" : "Track II · Essay Coach — Module "+(md.num-6)+" of 5"; }
 
 /* ============================ ANALYSIS ENGINE ============================ */
 const CLUTTER = {
@@ -1230,6 +1263,7 @@ if(!state.streak) state.streak={last:"",count:0};
 if(!state.warmup) state.warmup={last:"",count:0};
 if(!state.labHistory) state.labHistory=[];
 if(!state.theme) state.theme="light";
+if(state.welcomed===undefined) state.welcomed=false;
 MODULES.forEach(md=>{
   if(!state.m[md.id]) state.m[md.id]={lesson:false,drills:{},edit:0,editB:0,compose:false,assess:-1,note:""};
   if(state.m[md.id].editB===undefined) state.m[md.id].editB=0;
@@ -1325,7 +1359,7 @@ function ringSVG(pct,size,stroke,track,color){
 }
 
 /* ============================ NAV & ROUTING ============================ */
-let view={name:"dash"};
+let view = state.welcomed ? {name:"dash"} : {name:"welcome"};
 const session={drill:{},assess:{},warm:null};
 function go(v){ view=v; render(); window.scrollTo({top:0}); }
 
@@ -1335,6 +1369,7 @@ function renderSidebar(){
   $("#brandRank").innerHTML='<span class="rk-ic">'+cur[2]+'</span><div style="flex:1"><div class="rk-name">'+cur[1]+'</div><div class="rk-xp">'+state.xp+' XP'+(next?' · '+(next[0]-state.xp)+' to '+next[1]:' · top rank')+'</div><div class="rk-bar"><i style="width:'+prog+'%"></i></div></div>';
   const nav=$("#nav");
   let h='<button class="nav-item '+(view.name==="dash"?"active":"")+'" data-go="dash"><span class="nv-num">◆</span><span class="nv-t">Dashboard</span></button>';
+  h+='<button class="nav-item '+(view.name==="syllabus"?"active":"")+'" data-go="syllabus"><span class="nv-num">§</span><span class="nv-t">Course Syllabus</span></button>';
   h+='<button class="nav-item '+(view.name==="warmup"?"active":"")+'" data-go="warmup"><span class="nv-num">🔥</span><span class="nv-t">Daily Warm-up</span><span class="nv-pct '+(state.warmup.last===todayStr()?"done":"")+'">'+(state.warmup.last===todayStr()?"✓":"")+'</span></button>';
   let part="";
   MODULES.forEach(md=>{
@@ -1342,8 +1377,6 @@ function renderSidebar(){
     const p=mastery(md.id);
     h+='<button class="nav-item '+(view.name==="mod"&&view.id===md.id?"active":"")+'" data-go="mod:'+md.id+'"><span class="nv-num">'+(md.label||md.num)+'</span><span class="nv-t">'+esc(md.title)+'</span><span class="nv-pct '+(p>=80?"done":"")+'">'+(p>=80?"✓ ":"")+p+"%</span></button>";
   });
-  h+='<div class="nav-sec">Course</div>';
-  h+='<button class="nav-item '+(view.name==="syllabus"?"active":"")+'" data-go="syllabus"><span class="nv-num">§</span><span class="nv-t">Course Syllabus</span></button>';
   h+='<div class="nav-sec">Tools</div>';
   h+='<button class="nav-item '+(view.name==="notes"?"active":"")+'" data-go="notes"><span class="nv-num">❧</span><span class="nv-t">Lessons Learned</span></button>';
   nav.innerHTML=h;
@@ -1356,6 +1389,7 @@ function renderSidebar(){
 /* ============================ VIEWS ============================ */
 function setMain(h){ $("#main").innerHTML='<div class="view">'+h+'</div>'; }
 function render(){ renderSidebar();
+  if(view.name==="welcome") return renderWelcome();
   if(view.name==="dash") renderDash();
   else if(view.name==="mod") renderModule();
   else if(view.name==="warmup") renderWarmup();
@@ -1369,7 +1403,7 @@ function renderDash(){
   const done=MODULES.filter(md=>mastery(md.id)>=80).length;
   const warmDone = state.warmup.last===todayStr();
   const nextMod=MODULES.find(md=>mastery(md.id)<80);
-  let h='<div class="crumb">ENG 119 · English I — Practice Companion</div><h2 class="pg">Your Semester, One Skill at a Time</h2><p class="tagline">Quiz prep for Quizzes 1–5 and the final, essay coaching for all five assigned essays — aligned to the ENG 119 syllabus.</p>';
+  let h='<div class="crumb">ENG 119 · English 1 — Practice Companion · Summer 2026</div><h2 class="pg">Your Semester, One Skill at a Time</h2><p class="tagline">Prep for the weekly tests and the final, plus coaching for every paper and in-class essay — aligned to Prof. McHugh&rsquo;s ENG 119 syllabus.</p>';
   h+='<div class="card dash-hero">'
    +'<div class="dh-cell" style="min-width:230px"><div class="rank-medal"><div class="rm-ic">'+cur[2]+'</div><div style="flex:1"><b>'+cur[1]+'</b><span class="rm-xp">'+state.xp+' XP'+(next?" · "+(next[0]-state.xp)+" to "+next[1]:" · top rank")+'</span><div class="xpbar"><i style="width:'+prog+'%"></i></div></div></div></div>'
    +'<div class="dh-cell dstat"><b><span class="flame">🔥</span>'+state.streak.count+'</b><span>day streak</span></div>'
@@ -1377,11 +1411,12 @@ function renderDash(){
    +'<div class="dh-cell dstat"><b>'+ov+'%</b><span>overall mastery</span></div>'
    +'<div class="dh-cell warm-cell"><h5>🔥 Daily Warm-up</h5><p>Three quick drills from skills you&rsquo;ve met. Keeps the streak alive.</p><button class="btn sm" id="warmBtn" '+(warmDone?"disabled":"")+'>'+(warmDone?"Done today ✓":"Start (~3 min)")+'</button></div>'
    +'</div>';
+  h+='<div class="card quick-syl" id="qsyl"><span style="font-size:26px">📄</span><div style="flex:1"><b>Course Syllabus &amp; semester map</b><div class="small-muted">Grading, policies, and the week-by-week schedule — every week linked to the module that preps it.</div></div><span class="pill">Open →</span></div>';
   /* journey map */
-  h+='<div class="track-head">Track I — Quiz Prep · Quizzes 1–5 and the Final Exam</div><div class="journey">';
+  h+='<div class="track-head">Track I — Quiz Prep · The Weekly Tests &amp; the Final</div><div class="journey">';
   let rulesStarted=false;
   MODULES.forEach((md,idx)=>{
-    if(md.track==="essay"&&!rulesStarted){ rulesStarted=true; h+='</div><div class="track-head">Track II — Essay Coach · The Five Assigned Essays</div><div class="journey">'; }
+    if(md.track==="essay"&&!rulesStarted){ rulesStarted=true; h+='</div><div class="track-head">Track II — Essay Coach · Papers &amp; In-Class Essays</div><div class="journey">'; }
     const p=mastery(md.id), s=state.m[md.id];
     const nodeCls = p>=80?"done":(p>0||md===nextMod?"live":"");
     const drillsDone=Object.keys(s.drills).length;
@@ -1402,6 +1437,7 @@ function renderDash(){
   h+='<p class="small-muted" style="margin-top:4px">Mastery — Quiz Prep modules: lesson 15% · drills 60% · assessment 25%. Essay Coach modules: lesson 15% · drills 35% · workshop 20% · planning 10% · assessment 20%. Reach 80% to master; only best scores count.</p><p class="small-muted" style="margin-top:8px"><b>A note on honest work:</b> this is an unofficial practice companion, not part of the graded course. It never touches your real assignments — the drills and rewrite passages here are practice material only. Your submitted essays must be entirely your own work, per the course academic honesty policy.</p>';
   setMain(h);
   if($("#warmBtn")&&!warmDone) $("#warmBtn").onclick=()=>go({name:"warmup"});
+  $("#qsyl").onclick=()=>go({name:"syllabus"});
   document.querySelectorAll(".j-row").forEach(c=>c.onclick=()=>go({name:"mod",id:c.dataset.mod,tab:"lesson"}));
 }
 
@@ -1415,7 +1451,7 @@ function renderModule(){
   if(!tabs.some(t=>t[0]===view.tab)) view.tab="lesson";
   let h='<div class="mod-hero '+(md.track==="quiz"?"quiz":"essay")+'"><span class="ghost">'+(md.label||md.num)+'</span>'
    +'<div class="mh-crumb">'+crumbFor(md)+'</div>'
-   +'<h2>'+esc(md.title)+'</h2><div class="mh-tag">'+esc(md.tagline)+'</div>'
+   +'<h2>'+esc(md.title)+'</h2><div class="mh-tag">'+esc(md.tagline)+'</div>'+(md.when?'<div class="mh-when">📅 On the syllabus: '+esc(md.when)+'</div>':'')
    +'<div class="mh-ring"><div class="ring-wrap">'+ringSVG(p,74,8)+'<div class="ring-label"><b style="color:#fff;font-size:18px">'+p+'%</b></div></div><div class="rl">mastery</div></div></div>';
   h+='<div class="tabs">'+tabs.map(t=>'<button class="tab '+(view.tab===t[0]?"active":"")+'" data-tab="'+t[0]+'">'+t[1]+(t[2]?'<span class="tick">✓</span>':"")+'</button>').join("")+'</div>';
   h+='<div id="tabBody"></div>';
@@ -1658,7 +1694,7 @@ function pickWarmupSet(){
 function renderWarmup(){
   const doneToday=state.warmup.last===todayStr();
   if(!session.warm||session.warm.finished&&doneToday===false) session.warm=null;
-  let h='<div class="warm-hero"><h2>🔥 Daily Warm-up</h2><p>Three quick drills drawn from modules you&rsquo;ve already started. A few minutes a day is how quiz material becomes reflex — especially the week before Quizzes 1–5 and the final.</p></div>';
+  let h='<div class="warm-hero"><h2>🔥 Daily Warm-up</h2><p>Three quick drills drawn from modules you&rsquo;ve already started. A few minutes a day is how test material becomes reflex — especially with new Blackboard tests due every single week.</p></div>';
   if(doneToday&&!session.warm){
     h+='<div class="card"><div class="assess-result"><div class="big">✓</div><p>Warm-up done for today. Streak: <b>🔥 '+state.streak.count+'</b> day'+(state.streak.count===1?"":"s")+'. Come back tomorrow.</p></div></div>';
     setMain(h); return;
@@ -1783,6 +1819,7 @@ function renderNotes(){
 /* ---------- theme, export / import ---------- */
 function applyTheme(){ document.documentElement.setAttribute("data-theme",state.theme); }
 $("#themeBtn").onclick=()=>{ state.theme=state.theme==="dark"?"light":"dark"; applyTheme(); saveState(); };
+$("#aboutBtn").onclick=()=>go({name:"welcome"});
 $("#exportBtn").onclick=()=>{
   const blob=new Blob([JSON.stringify(state,null,1)],{type:"application/json"});
   const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="eng119-progress.json"; a.click();
@@ -1795,7 +1832,7 @@ $("#importFile").onchange=(ev)=>{
       if(state.xp===undefined)state.xp=0; if(!state.badges)state.badges={}; if(!state.counters)state.counters={firstTry:0,bracketPerfect:0,warmups:0,drillsDone:0};
       if(!state.streak)state.streak={last:"",count:0}; if(!state.warmup)state.warmup={last:"",count:0}; if(!state.labHistory)state.labHistory=[]; if(!state.theme)state.theme="light";
       MODULES.forEach(md=>{ if(!state.m[md.id]) state.m[md.id]={lesson:false,drills:{},edit:0,editB:0,compose:false,assess:-1,note:""}; if(state.m[md.id].editB===undefined) state.m[md.id].editB=0; });
-      applyTheme(); saveState(); render(); toast("Progress imported"); } else toast("That file doesn't look like WriteWell progress."); }catch(e){ toast("Couldn't read that file."); } };
+      applyTheme(); saveState(); render(); toast("Progress imported"); } else toast("That file doesn't look like ENG 119 Companion progress."); }catch(e){ toast("Couldn't read that file."); } };
   rd.readAsText(f);
 };
 
